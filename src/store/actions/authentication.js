@@ -51,6 +51,7 @@ export const login = (userData, history) => {
       history.push("/private");
     } catch (err) {
       console.error(err.response);
+      setErrors(err.response);
     }
   };
 };
@@ -67,6 +68,7 @@ export const signup = (userData, history) => {
       console.log(user.token);
     } catch (err) {
       console.error(err.response);
+      setErrors(err.response);
     }
   };
 };
