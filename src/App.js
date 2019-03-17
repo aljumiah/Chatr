@@ -19,6 +19,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "./store/actions";
 import AddChannelCard from "./components/AddChannelCard";
 import ChannelForm from "./components/ChannelForm";
+import MessageForm from "./components/MessageForm";
 
 class App extends Component {
   componentDidMount() {
@@ -34,6 +35,7 @@ class App extends Component {
         <Switch>
           <Route path="/welcome" component={Welcome} />
           <Route path="/createChannel" component={ChannelForm} />
+          <Route path="/channels/:channelID/send/" component={MessageForm} />
 
           <Route path="/channels/:channelID" component={ChannelMessages} />
           <Route path="/(login|signup)" component={RegistrationForm} />
