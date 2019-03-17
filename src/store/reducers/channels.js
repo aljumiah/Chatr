@@ -12,6 +12,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         channels: action.payload,
         loading: false
+        //loading: false
       };
 
     default:
