@@ -12,6 +12,8 @@ import {
 // Components
 import ChannelNavLink from "./ChannelNavLink";
 
+import { connect } from "react-redux";
+
 class SideNav extends React.Component {
   state = { collapsed: false };
 
@@ -25,7 +27,7 @@ class SideNav extends React.Component {
           <li className="nav-item" data-toggle="tooltip" data-placement="right">
             <Link className="nav-link heading" to="/createChannel">
               <span className="nav-link-text mr-2">Channels</span>
-              <FontAwesomeIcon icon={faPlusCircle} />
+              {this.props.user && <FontAwesomeIcon icon={faPlusCircle} />}
             </Link>
           </li>
           {channelLinks}
@@ -54,7 +56,10 @@ class SideNav extends React.Component {
 
 const mapStateToProps = state => {
   return {
+
+    user: state.auth.user,
     channels: state.rootChannels.channels
+
   };
 };
 

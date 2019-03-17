@@ -26,6 +26,7 @@ class RegistationForm extends Component {
 
   render() {
     const type = this.props.match.url.substring(1);
+    //const errors = this.props.errors;
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
         <div className="card-body">
@@ -81,8 +82,13 @@ const mapDispatchToProps = dispatch => ({
   login: (userData, history) =>
     dispatch(actionCreators.login(userData, history))
 });
-
+const mapStateToProps = state => {
+  return {
+    user: state.auth.user,
+    errors: state.auth.errors
+  };
+};
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(RegistationForm);

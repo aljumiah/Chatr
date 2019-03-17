@@ -13,8 +13,12 @@ import {
 
 class AuthButton extends Component {
   render() {
+    let user;
+    {
+      this.props.user ? (user = this.props.user) : (user = null);
+    }
     // const { user } = this.props;
-    const user = { username: "Mr Potato" };
+    //const user = { username: "Mr Potato" };
     let buttons = (
       <li onClick={this.props.logout} className="nav-item">
         <span className="nav-link">
@@ -40,7 +44,7 @@ class AuthButton extends Component {
 
     return (
       <ul className="navbar-nav ml-auto">
-        <span className="navbar-text">{user.username}</span>
+        <span className="navbar-text">{user && user.username}</span>
         {buttons}
       </ul>
     );
@@ -53,7 +57,13 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+const mapStateToProps = state => {
+  return {
+    user: state.auth.user
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AuthButton);
