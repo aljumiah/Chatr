@@ -20,6 +20,7 @@ class ChannelMessages extends Component {
       this.props.getChannel(this.props.match.params.channelID);
     }
   }
+
   render() {
     if (this.props.loading) {
       return <Loading />;
