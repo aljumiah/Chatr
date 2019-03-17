@@ -22,15 +22,19 @@ class ChannelMessages extends Component {
   }
 
   render() {
-    if (this.props.loading) {
-      return <Loading />;
-    } else {
-      const channel = this.props.channel.map((message, idx) => (
-        <Message key={message.id + idx} message={message} />
-      ));
-      console.log(channel);
+    if (this.props.user) {
+      if (this.props.loading) {
+        return <Loading />;
+      } else {
+        const channel = this.props.channel.map((message, idx) => (
+          <Message key={message.id + idx} message={message} />
+        ));
+        console.log(channel);
 
-      return <h4>{channel}</h4>;
+        return <div>{channel}</div>;
+      }
+    } else {
+      return <h1>You need to sign in to see the channel's messages</h1>;
     }
   }
 }
@@ -38,7 +42,8 @@ class ChannelMessages extends Component {
 const mapStateToProps = state => {
   return {
     channel: state.rootChannel.channel,
-    loading: state.rootChannel.loading
+    loading: state.rootChannel.loading,
+    user: state.auth.user
   };
 };
 
