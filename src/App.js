@@ -21,6 +21,7 @@ class App extends Component {
   componentDidMount() {
     main();
     this.props.checkForExpiredToken();
+    this.props.fetchChannels();
   }
 
   render() {
@@ -39,15 +40,23 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    channels: state.rootChannels.channels,
+    loading: state.rootChannels.loading
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
+    fetchChannels: () => dispatch(actionCreators.fetchChannels()),
     checkForExpiredToken: () => dispatch(actionCreators.checkForExpiredToken())
   };
 };
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(App)
 );
