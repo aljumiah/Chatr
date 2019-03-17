@@ -12,8 +12,6 @@ import {
 // Components
 import ChannelNavLink from "./ChannelNavLink";
 
-import { connect } from "react-redux";
-
 class SideNav extends React.Component {
   state = { collapsed: false };
 
@@ -56,10 +54,8 @@ class SideNav extends React.Component {
 
 const mapStateToProps = state => {
   return {
-
     user: state.auth.user,
     channels: state.rootChannels.channels
-
   };
 };
 
