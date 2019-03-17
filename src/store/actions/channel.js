@@ -14,3 +14,24 @@ export const fetchChannelMessages = channelID => {
     dispatch({ type: actionTypes.FETCH_CHANNEL_MESSAGES, payload: channel });
   };
 };
+
+export const postMessage = (message, channelID) => {
+  message = {
+    ...message,
+    channels: [channelID]
+  };
+  return async dispatch => {
+    try {
+      const res = await instance.post(`channels/${channelID}/send/`, message);
+
+      const newMessage = res.data;
+
+      dispatch({
+        type: actionTypes.POST_MESSAGE,
+        payload: newMessage
+      });
+    } catch (error) {
+      console.error(error.response.data);
+    }
+  };
+};
