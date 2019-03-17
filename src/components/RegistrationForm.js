@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+
+// Actions
+import * as actionCreators from "../store/actions";
+
 class RegistationForm extends Component {
   state = {
     username: "",
@@ -11,9 +16,12 @@ class RegistationForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitHandler = e => {
+  submitHandler = (e, type) => {
     e.preventDefault();
-    alert("I don't work yet");
+
+    type === "login"
+      ? this.props.login(this.state, this.props.history)
+      : this.props.signup(this.state, this.props.history);
   };
 
   render() {
@@ -26,7 +34,7 @@ class RegistationForm extends Component {
               ? "Login to send messages"
               : "Register an account"}
           </h5>
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={event => this.submitHandler(event, type)}>
             <div className="form-group">
               <input
                 className="form-control"
@@ -67,4 +75,14 @@ class RegistationForm extends Component {
   }
 }
 
-export default RegistationForm;
+const mapDispatchToProps = dispatch => ({
+  signup: (userData, history) =>
+    dispatch(actionCreators.signup(userData, history)),
+  login: (userData, history) =>
+    dispatch(actionCreators.login(userData, history))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(RegistationForm);
