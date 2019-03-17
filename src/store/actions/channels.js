@@ -25,3 +25,19 @@ export const fetchChannels = () => {
     }
   };
 };
+
+export const postChannel = channel => {
+  return async dispatch => {
+    try {
+      console.log(channel.name);
+      const res = await instance.post("channels/create/", channel);
+      const newChannel = res.data;
+      dispatch({
+        type: actionTypes.POST_CHANNEL,
+        payload: newChannel
+      });
+    } catch (error) {
+      console.error(error.response.data);
+    }
+  };
+};
