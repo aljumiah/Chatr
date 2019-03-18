@@ -7,31 +7,32 @@ import * as actionCreators from "../store/actions";
 class MessageForm extends Component {
   state = {
     user: this.props.user,
-    channel: this.props.match.params.channelID,
+    channel: this.props.channelID,
     message: ""
   };
-
+  resetForm = () => {
+    console.log("test reset");
+    this.setState({ message: "" });
+  };
   onTextChange = event =>
     this.setState({ [event.target.name]: event.target.value });
 
   onSubmit = event => {
     console.log(this.state);
     event.preventDefault();
-    this.props.postMessage(this.state, this.props.match.params.channelID);
+    this.props.postMessage(this.state, this.resetForm, this.props.channelID);
   };
 
   render() {
     return (
       <div className="mt-5 p-2">
         <form onSubmit={this.onSubmit}>
-          <div className="input-group mb-3">
-            <div className="input-group-prepend">
-              <span className="input-group-text">Title</span>
-            </div>
+          <div className="">
             <input
               type="text"
-              className="form-control"
+              className="form-control messageStyleInput"
               name="message"
+              value={this.state.message}
               onChange={this.onTextChange}
             />
           </div>
@@ -53,8 +54,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    postMessage: (message, channelID) =>
-      dispatch(actionCreators.postMessage(message, channelID))
+    postMessage: (message, reset, channelID) =>
+      dispatch(actionCreators.postMessage(message, reset, channelID))
   };
 };
 
