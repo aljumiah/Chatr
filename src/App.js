@@ -3,7 +3,7 @@ import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
 // Scripts
 import main from "./assets/js/main";
-
+import "./assets/css/custom.css";
 // Components
 import NavBar from "./components/Navigation/NavBar";
 import Footer from "./components/Footer";
