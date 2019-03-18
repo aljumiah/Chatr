@@ -75,3 +75,7 @@ input.messageStyleInput {
 .content_chat {
   padding-bottom: 18%;
 }
+
+.rounded-circle_border {
+  border: 2px solid #32d166;
+}
