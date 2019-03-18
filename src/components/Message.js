@@ -18,6 +18,7 @@ class Meassage extends Component {
           <div className="col-7">{message.message}</div>
           <div className="col-7">{message.timestamp}</div>
           <div className="col-7">{message.channel}</div>
+          <div className="col-7">{message.channel}</div>
           <div className="col-5" />
         </div>
       </li>

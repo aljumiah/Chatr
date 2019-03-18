@@ -1,5 +1,8 @@
 import * as actionTypes from "./actionTypes";
 
+// AC
+import { setErrors } from "./errors";
+
 import axios from "axios";
 
 const instance = axios.create({
@@ -26,18 +29,20 @@ export const fetchChannels = () => {
   };
 };
 
-export const postChannel = channel => {
+export const postChannel = (channel, reset, history) => {
   return async dispatch => {
     try {
-      console.log(channel.name);
       const res = await instance.post("channels/create/", channel);
       const newChannel = res.data;
       dispatch({
         type: actionTypes.POST_CHANNEL,
         payload: newChannel
       });
+      reset();
+      history.push(`/channels/${newChannel.id}`);
     } catch (error) {
-      console.error(error.response.data);
+      if (error.response) dispatch(setErrors(error.response.data));
+      else console.error(error);
     }
   };
 };
