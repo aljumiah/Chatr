@@ -11,18 +11,36 @@ class ChannelForm extends Component {
     image_url: ""
   };
 
+  componentWillUnmount() {
+    if (this.props.errors.length) this.props.setErrors();
+  }
+
   submitChannel = event => {
     event.preventDefault();
-    this.props.postChannel(this.state);
+    this.props.postChannel(this.state, this.resetForm, this.props.history);
   };
+
+  resetForm = () => this.setState({ name: "", image_url: "" });
 
   onTextchange = event =>
     this.setState({ [event.target.name]: event.target.value });
 
   render() {
+    /* --here I add the errors -- + ComponentWillUnMount--- + mapDispatchToProps+ MapStateToProps ---*/
+    const errors = this.props.errors;
     return (
       <div className="mt-5 p-2">
         <form onSubmit={this.submitChannel}>
+          {!!errors.length && (
+            <div className="alert alert-danger" role="alert">
+              {errors.map(error => (
+                <p key={error}>{error}</p>
+              ))}
+            </div>
+          )}
+
+          {/* ----------------------------------------- end ----------------------------------------*/}
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">User Name</span>
@@ -31,6 +49,7 @@ class ChannelForm extends Component {
               type="text"
               className="form-control"
               name="name"
+              value={this.state.name}
               onChange={this.onTextchange}
             />
           </div>
@@ -53,13 +72,21 @@ class ChannelForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    errors: state.errors.errors
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
-    postChannel: newChannel => dispatch(actionCreators.postChannel(newChannel))
+    postChannel: (newChannel, reset, history) =>
+      dispatch(actionCreators.postChannel(newChannel, reset, history)),
+    setErrors: () => dispatch(actionCreators.setErrors({}))
   };
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChannelForm);
