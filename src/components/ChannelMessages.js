@@ -18,7 +18,7 @@ class ChannelMessages extends Component {
     //   () => this.props.getChannel(this.props.match.params.channelID),
     //   3000
     // );
-    
+
     //TimeStamp
 
     this.scrollToBottom();
@@ -58,17 +58,21 @@ class ChannelMessages extends Component {
 
         return (
           <div
-            className="content_chat"
+            className="content_chat image_style"
             style={{
-              backgroundImage: `url(${chatBackGround.image_url})`,
+              backgroundImage: ` url(${chatBackGround.image_url})`,
+              position: "fixed",
 
-              backgroundRepeat: "repeat"
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              filter: "alpha((opacity = 50))"
             }}
           >
-            <h3 className="title_text_in_chat">{chatBackGround.name}</h3>
             {/* -----------------^^-----the Start--& end^^------------------------- */}
-
-            <div>{channel}</div>
+            <div className="coverBack" />
+            <div style={{ overflowY: "scroll", height: 700 }}>
+              <div>{channel}</div>
+            </div>
             <div className="backgroundInput">
               <MessageForm channelID={this.props.match.params.channelID} />
             </div>
