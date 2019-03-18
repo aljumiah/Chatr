@@ -29,6 +29,13 @@ export const fetchChannels = () => {
   };
 };
 
+export const filterChannels = query => {
+  return {
+    type: actionTypes.FILTER_CHANNELS,
+    payload: query.toLowerCase()
+  };
+};
+
 export const postChannel = (channel, reset, history) => {
   return async dispatch => {
     try {
