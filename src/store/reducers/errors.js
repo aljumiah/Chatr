@@ -7,9 +7,12 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_ERRORS:
-      return Object.keys(action.payload).map(
-        key => `${key}: ${action.payload[key]}`
-      );
+      return {
+        ...state,
+        errors: Object.keys(action.payload).map(
+          key => `${key}: ${action.payload[key]}`
+        )
+      };
     default:
       return state;
   }
