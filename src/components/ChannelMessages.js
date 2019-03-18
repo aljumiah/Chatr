@@ -13,6 +13,7 @@ import MessageForm from "./MessageForm";
 class ChannelMessages extends Component {
   componentDidMount() {
     this.props.getChannel(this.props.match.params.channelID);
+    //TimeStamp
     setInterval(
       () => this.props.getChannel(this.props.match.params.channelID),
       3000
@@ -38,13 +39,28 @@ class ChannelMessages extends Component {
       if (this.props.loading) {
         return <Loading />;
       } else {
-        console.log(channel);
+        //--------------------adding pictures to the background ------------------------
+
+        const channelID = this.props.match.params.channelID;
+        const chatBackGround =
+          this.props.channels.find(channel => channel.id === +channelID) || {};
+        //--------------------------------------now we can use it in the return --------
         const channel = this.props.channel.map((message, idx) => (
           <Message key={message.id + idx} message={message} />
         ));
-        console.log(channel);
+
         return (
-          <div className="content_chat">
+          <div
+            className="content_chat"
+            style={{
+              backgroundImage: `url(${chatBackGround.image_url})`,
+
+              backgroundRepeat: "repeat"
+            }}
+          >
+            <h3 className="title_text_in_chat">{chatBackGround.name}</h3>
+            {/* -----------------^^-----the Start--& end^^------------------------- */}
+
             <div>{channel}</div>
             <div className="backgroundInput">
               <MessageForm channelID={this.props.match.params.channelID} />
@@ -57,10 +73,10 @@ class ChannelMessages extends Component {
     }
   }
 }
-
 const mapStateToProps = state => {
   return {
     channel: state.rootChannel.channel,
+    channels: state.rootChannels.channels,
     loading: state.rootChannel.loading,
     user: state.auth.user
   };

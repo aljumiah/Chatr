@@ -64,7 +64,7 @@ input.messageStyleInput {
   padding-bottom: 60px;
   margin-top: 30px;
   padding-left: 30px;
-  background: #f2f5f8;
+  background: #00000073;
   border: 1px solid #e7e7e7;
   position: fixed;
   bottom: 0;
@@ -78,4 +78,14 @@ input.messageStyleInput {
 
 .rounded-circle_border {
   border: 2px solid #32d166;
+}
+.title_text_in_chat {
+  color: #5c1111;
+  font-family: "Great Vibes", cursive;
+  font-size: 50px;
+  line-height: 80px;
+  font-weight: normal;
+  margin-bottom: 0px;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
 }
