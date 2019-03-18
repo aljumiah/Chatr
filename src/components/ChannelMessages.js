@@ -13,10 +13,10 @@ import MessageForm from "./MessageForm";
 class ChannelMessages extends Component {
   componentDidMount() {
     this.props.getChannel(this.props.match.params.channelID);
-    setInterval(
-      () => this.props.getChannel(this.props.match.params.channelID),
-      3000
-    );
+    // setInterval(
+    //   () => this.props.getChannel(this.props.match.params.channelID),
+    //   3000
+    // );
     this.scrollToBottom();
   }
 
@@ -40,9 +40,13 @@ class ChannelMessages extends Component {
       } else {
         console.log(channel);
         const channel = this.props.channel.map((message, idx) => (
-          <Message key={message.id + idx} message={message} />
+          <Message
+            key={message.id + idx}
+            message={message}
+            user={this.props.user}
+          />
         ));
-        console.log(channel);
+        //console.log(channel);
         return (
           <div className="content_chat">
             <div>{channel}</div>

@@ -73,5 +73,44 @@ input.messageStyleInput {
 }
 
 .content_chat {
-  padding-bottom: 18%;
+  padding-bottom: 15%;
+}
+
+.message_circle2 {
+  width: 30%;
+  margin-left: 70%;
+  background-color: #006bff;
+  border: 1px solid #006bff;
+  color: white;
+  line-height: 26px;
+  color: white;
+  padding: 18px 20px;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-bottom: 50px !important;
+  margin-right: 30px;
+  position: relative;
+  box-shadow: 0 0.35em 1.175em rgba(2, 8, 20, 0.1),
+    0 0.175em 0.5em rgba(2, 8, 20, 0.08);
+  -webkit-box-shadow: 0 0.35em 1.175em rgba(2, 8, 20, 0.1),
+    0 0.175em 0.5em rgba(2, 8, 20, 0.08);
+}
+.float_right {
+  float: right;
+  margin-right: 10px;
+}
+
+.message_circle2:after {
+  bottom: 100%;
+  left: 90%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #006bff;
+  border-width: 10px;
+  margin-right: -10px;
 }
