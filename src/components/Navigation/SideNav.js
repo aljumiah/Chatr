@@ -33,8 +33,6 @@ class SideNav extends React.Component {
               <span className="nav-link-text mr-2">Channels</span>
               {this.props.user && <FontAwesomeIcon icon={faPlusCircle} />}
             </Link>
-          </li>
-          <li>
             <SearchBar />
           </li>
           {this.props.user && <>{channelLinks}</>}

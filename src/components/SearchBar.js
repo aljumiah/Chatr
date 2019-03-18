@@ -9,18 +9,15 @@ import * as actionCreators from "../store/actions";
 class SearchBar extends Component {
   render() {
     return (
-      <div className="form-group col-lg-6 col-12 mx-auto">
+      <div className="form-group col-lg-12 col-12 mx-auto">
         <div className="input-group my-3">
           <input
+            placeholder="Search"
             className="form-control"
             type="text"
             onChange={event => this.props.filterChannels(event.target.value)}
           />
-          <div className="input-group-append">
-            <span className="input-group-text">
-              <FontAwesomeIcon icon={faSearch} />
-            </span>
-          </div>
+          <div className="input-group-append" />
         </div>
       </div>
     );
