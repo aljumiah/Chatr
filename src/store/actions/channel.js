@@ -28,6 +28,7 @@ export const postMessage = (message, reset, channelID) => {
       const newMessage = res.data;
       console.log("[actions/channel.js] newMessage:", newMessage);
       reset();
+      //fetchChannelMessages(channelID);
       dispatch({
         type: actionTypes.POST_MESSAGE,
         payload: newMessage

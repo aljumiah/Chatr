@@ -13,11 +13,14 @@ import MessageForm from "./MessageForm";
 class ChannelMessages extends Component {
   componentDidMount() {
     this.props.getChannel(this.props.match.params.channelID);
+
+    // setInterval(
+    //   () => this.props.getChannel(this.props.match.params.channelID),
+    //   3000
+    // );
+    
     //TimeStamp
-    setInterval(
-      () => this.props.getChannel(this.props.match.params.channelID),
-      3000
-    );
+
     this.scrollToBottom();
   }
 
@@ -46,7 +49,11 @@ class ChannelMessages extends Component {
           this.props.channels.find(channel => channel.id === +channelID) || {};
         //--------------------------------------now we can use it in the return --------
         const channel = this.props.channel.map((message, idx) => (
-          <Message key={message.id + idx} message={message} />
+          <Message
+            key={message.id + idx}
+            message={message}
+            user={this.props.user}
+          />
         ));
 
         return (
