@@ -16,7 +16,12 @@ class ChannelNavLink extends Component {
         title={channel.name}
       >
         <NavLink className="nav-link" to={`/channels/${channel.id}`}>
-          <FontAwesomeIcon icon={faHashtag} />
+          {/* <FontAwesomeIcon icon={faHashtag} /> */}
+          <img
+            className="rounded-circle rounded-circle_border"
+            src={channel.image_url}
+            style={{ width: "50px", height: "50px" }}
+          />
           <span className="nav-link-text"> {channel.name}</span>
         </NavLink>
       </li>

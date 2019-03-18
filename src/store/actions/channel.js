@@ -9,7 +9,9 @@ const instance = axios.create({
 
 export const fetchChannelMessages = channelID => {
   return async dispatch => {
-    const res = await instance.get(`channels/${channelID}`);
+    const res = await instance.get(
+      `channels/${channelID}/?latest=${"2019-03-18T12:08:42.181484Z"}`
+    );
     const channel = res.data;
     dispatch({ type: actionTypes.FETCH_CHANNEL_MESSAGES, payload: channel });
   };
