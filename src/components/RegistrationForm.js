@@ -20,7 +20,9 @@ class RegistationForm extends Component {
     e.preventDefault();
 
     type === "login"
-      ? this.props.login(this.state, this.props.history)
+      ? this.props.login(this.state, this.props.history, () =>
+          this.props.fetchChannels()
+        )
       : this.props.signup(this.state, this.props.history);
   };
 
@@ -79,8 +81,9 @@ class RegistationForm extends Component {
 const mapDispatchToProps = dispatch => ({
   signup: (userData, history) =>
     dispatch(actionCreators.signup(userData, history)),
-  login: (userData, history) =>
-    dispatch(actionCreators.login(userData, history))
+  login: (userData, history, fetch) =>
+    dispatch(actionCreators.login(userData, history, fetch)),
+  fetchChannels: () => dispatch(actionCreators.fetchChannels())
 });
 const mapStateToProps = state => {
   return {

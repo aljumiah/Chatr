@@ -14,12 +14,14 @@ class Meassage extends Component {
     return (
       <>
         {message.username === this.props.user.username ? (
-          <div style={{ marginBottom: 50 }}>
-            <div className="messageLabel " style={{ textAlign: "right" }}>
-              <span className="messagedate ">
-                {message.timestamp.substring(0, 10)}
-              </span>
-              <span className="messageuser ">{message.username}</span>
+          <div className="col-12" style={{ marginBottom: 50 }}>
+            <div className=" messageLabel">
+              <p className="circleUSerImg1 messageuser">
+                YOU
+                <span className="messagedate">
+                  {message.timestamp.substring(0, 10)}
+                </span>
+              </p>
             </div>
             <li
               className=" message_circle2 list-group-item "
@@ -33,16 +35,18 @@ class Meassage extends Component {
           </div>
         ) : (
           <>
-            <div className="messageLabel">
-              <span className="messageuser">{message.username}</span>
-              <span className="messagedate">
-                {message.timestamp.substring(0, 10)}
-              </span>
+            <div className="col-12 messageLabel">
+              <p className="circleUSerImg messageuser">
+                {message.username}
+                <span className="messagedate">
+                  {message.timestamp.substring(0, 10)}
+                </span>
+              </p>
             </div>
             <li className="message_circle list-group-item">
               <div className="row ">
-                <div className="col-7">{message.message}</div>
-                <div className="col-5" />
+                <div className="col-12">{message.message}</div>
+                <div className="col-12" />
               </div>
             </li>
           </>

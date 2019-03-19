@@ -8,12 +8,12 @@
 
 .message_circle {
   display: block;
-  background-color: #32d166;
-  border: 1px solid #32d166;
+  background-color: #fff;
+  border: 1px solid #fff;
   color: white;
   padding: 18px 20px;
   line-height: 26px;
-  color: white;
+  color: #000;
   padding: 18px 20px;
   line-height: 26px;
   font-size: 16px;
@@ -36,7 +36,7 @@
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-bottom-color: #32d166;
+  border-bottom-color: #fff;
   border-width: 10px;
   margin-left: -10px;
 }
@@ -52,10 +52,8 @@
 
 input.messageStyleInput {
   width: 100%;
-  border: none;
   padding: 10px 20px;
-  font: 14px/22px "Lato", Arial, sans-serif;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   border-radius: 5px;
   resize: none;
 }
@@ -64,23 +62,32 @@ input.messageStyleInput {
   padding-bottom: 60px;
   margin-top: 30px;
   padding-left: 30px;
-  background: #00000073;
+  background: #fff;
   border: 1px solid #e7e7e7;
   position: fixed;
   bottom: 0;
   width: 100%;
   padding-right: 25%;
+  padding-top: 25px;
 }
 
 .content_chat {
   padding-bottom: 15%;
 }
 
+.chat_overflow {
+  overflow-y: scroll;
+  position: fixed;
+  bottom: 120px;
+  top: 0;
+  right: 0;
+  left: 250px;
+}
 .message_circle2 {
   width: 30%;
   margin-left: 70%;
-  background-color: #006bff;
-  border: 1px solid #006bff;
+  background-color: #395472;
+  border: 1px solid #395472;
   color: white;
   line-height: 26px;
   color: white;
@@ -110,13 +117,14 @@ input.messageStyleInput {
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-bottom-color: #006bff;
+  border-bottom-color: #395472;
   border-width: 10px;
   margin-right: -10px;
 }
 
 .rounded-circle_border {
-  border: 2px solid #32d166;
+  border: 2px solid #01b1f2;
+  padding: 2px;
 }
 .title_text_in_chat {
   color: #5c1111;
@@ -136,7 +144,6 @@ input.messageStyleInput {
   left: 250px;
 }
 .coverBack {
-  background-color: rgba(255, 255, 255, 0.479);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -144,9 +151,26 @@ input.messageStyleInput {
   left: 0;
   z-index: 0;
 }
+.circleUSerImg {
+  width: 25%;
+  border-radius: 100px 0px 100px 0px;
+  padding: 0px 0px 0px 10px;
+  background: #fff;
+}
+.circleUSerImg1 {
+  border: 2px solid #16191e73;
+  width: 25%;
+  margin-left: 75%;
+  border-radius: 100px 100px 100px 100px;
+  padding: 0px 0px 0px 10px;
+  background: #fff;
+}
 
 @media (max-width: 991px) {
   .image_style {
     left: 0 !important;
+  }
+  .chat_overflow {
+    left: 0;
   }
 }

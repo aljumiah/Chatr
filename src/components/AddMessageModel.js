@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import BookForm from "./BookForm";
+import ChannelForm from "./ChannelForm";
 import Modal from "react-responsive-modal";
 
 class AddBookModal extends Component {
@@ -17,7 +17,7 @@ class AddBookModal extends Component {
     return (
       <div>
         <Modal open={open} onClose={this.onCloseModal} center>
-          <BookForm authorID={this.props.authorID} />
+          <ChannelForm authorID={this.props.authorID} />
         </Modal>
         <input type="button" onClick={this.onOpenModal} value="Add New Book!" />
       </div>

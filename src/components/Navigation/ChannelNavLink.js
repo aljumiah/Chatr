@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
 // FontAwesome
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHashtag } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faHashtag } from "@fortawesome/free-solid-svg-icons";
+import tv from "../../assets/images/television.png";
 
 class ChannelNavLink extends Component {
   render() {
@@ -16,12 +16,16 @@ class ChannelNavLink extends Component {
         title={channel.name}
       >
         <NavLink className="nav-link" to={`/channels/${channel.id}`}>
-          {/* <FontAwesomeIcon icon={faHashtag} /> */}
           <img
             className="rounded-circle rounded-circle_border"
-            src={channel.image_url}
-            style={{ width: "50px", height: "50px" }}
+            src={
+              channel.image_url
+                ? channel.image_url
+                : "https://cdn.pixabay.com/photo/2017/08/12/10/13/background-2633962_960_720.jpg"
+            }
+            style={{ width: "50px", height: "50px", objectFit: "cover" }}
           />
+
           <span className="nav-link-text"> {channel.name}</span>
         </NavLink>
       </li>

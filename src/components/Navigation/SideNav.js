@@ -8,15 +8,22 @@ import {
   faAngleRight,
   faPlusCircle
 } from "@fortawesome/free-solid-svg-icons";
+import Modal from "react-responsive-modal";
+import ChannelForm from "../ChannelForm";
 
 // Components
 import ChannelNavLink from "./ChannelNavLink";
 import SearchBar from "../SearchBar";
 
 class SideNav extends React.Component {
-  state = { collapsed: false };
+  state = { collapsed: false, open: false };
+
+  onOpenModal = () => this.setState({ open: true });
+
+  onCloseModal = () => this.setState({ open: false });
 
   render() {
+    const { open } = this.state;
     const channelLinks = this.props.filteredChannels.map(channel => (
       <ChannelNavLink
         className="divStyle"
@@ -29,7 +36,7 @@ class SideNav extends React.Component {
       <div>
         <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li className="nav-item" data-toggle="tooltip" data-placement="right">
-            <Link className="nav-link heading" to="/createChannel">
+            <Link onClick={this.onOpenModal} className="nav-link heading" to="">
               <span className="nav-link-text mr-2">Channels</span>
               {this.props.user && <FontAwesomeIcon icon={faPlusCircle} />}
             </Link>
@@ -54,6 +61,9 @@ class SideNav extends React.Component {
             </span>
           </li>
         </ul>
+        <Modal open={open} onClose={this.onCloseModal} center>
+          <ChannelForm close={this.onCloseModal} />
+        </Modal>
       </div>
     );
   }

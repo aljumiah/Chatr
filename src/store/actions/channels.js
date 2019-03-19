@@ -36,7 +36,7 @@ export const filterChannels = query => {
   };
 };
 
-export const postChannel = (channel, reset, history) => {
+export const postChannel = (channel, reset, history, close) => {
   return async dispatch => {
     try {
       const res = await instance.post("channels/create/", channel);
@@ -46,6 +46,7 @@ export const postChannel = (channel, reset, history) => {
         payload: newChannel
       });
       reset();
+      close();
       history.push(`/channels/${newChannel.id}`);
     } catch (error) {
       if (error.response) dispatch(setErrors(error.response.data));
