@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 // Actions
 import * as actionCreators from "../store/actions";
+import Emoji from "./Emoji.js";
 
 class MessageForm extends Component {
   state = {
@@ -23,6 +24,10 @@ class MessageForm extends Component {
     this.props.postMessage(this.state, this.resetForm, this.props.channelID);
   };
 
+  addEmoji = emoji => {
+    this.setState({ message: this.state.message + " " + emoji });
+  };
+
   render() {
     return (
       <div className="mt-5 p-2">
@@ -35,6 +40,8 @@ class MessageForm extends Component {
               value={this.state.message}
               onChange={this.onTextChange}
             />
+
+            <Emoji addEmoji={this.addEmoji} />
           </div>
 
           <input type="submit" value="Add Message" />
