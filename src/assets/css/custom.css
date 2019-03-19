@@ -40,6 +40,9 @@
   border-width: 10px;
   margin-left: -10px;
 }
+.emoji-picker {
+  margin: 20px;
+}
 .messageLabel {
   margin-left: 35px;
   margin-bottom: 13px;

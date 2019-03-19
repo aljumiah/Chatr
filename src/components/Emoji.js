@@ -1797,22 +1797,46 @@ class Emoji extends Component {
     ];
 
     return (
+      //#####################################################
+
+      // <div className="dropdown">
+      //   <span
+      //     classNAme="btn btn-primary dropdown-toggle"
+      //     type="button"
+      //     data-toggle="dropdown"
+      //   >
+      //     {"😎"}
+      //     <span className="caret" />
+      //   </span>
+      //   <ul className="dropdown-menu">
+      //     {emoji.map(oneEmoji => (
+      //       <li onClick={() => this.props.addEmoji(oneEmoji)}>{oneEmoji}</li>
+      //     ))}
+      //   </ul>
+      // </div>
+
+      //#####################################################
+
+      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
       <div className="dropdown">
-        <button
-          classNAme="btn btn-primary dropdown-toggle"
-          type="button"
-          data-toggle="dropdown"
-        >
-          Emoji
+        <span className=" dropdown-toggle" type="button" data-toggle="dropdown">
+          {" "}
+          {"😎"}
           <span className="caret" />
-        </button>
+        </span>
         <ul className="dropdown-menu">
-          {emoji.map(oneEmoji => (
-            <li onClick={() => this.props.addEmoji(oneEmoji)}>{oneEmoji}</li>
+          {emoji.map((oneEmoji, idx) => (
+            <li key={idx} onClick={() => this.props.addEmoji(oneEmoji)}>
+              {oneEmoji}
+            </li>
           ))}
         </ul>
       </div>
+
+      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     );
   }
 }
+
 export default Emoji;
