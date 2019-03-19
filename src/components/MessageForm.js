@@ -1,34 +1,53 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Modal from "react-responsive-modal";
 
 // Actions
 import * as actionCreators from "../store/actions";
 import Emoji from "./Emoji.js";
 
+//emoji
+import EmojiPicker from "emoji-picker-react";
+import JSEMOJI from "emoji-js";
+let jsemoji = new JSEMOJI();
+
 class MessageForm extends Component {
   state = {
     user: this.props.user,
     channel: this.props.channelID,
-    message: ""
+    message: "",
+    emojiShown: false,
+    open: false
   };
+
+  onOpenModal = () => this.setState({ open: true });
+
+  onCloseModal = () => this.setState({ open: false });
+
   resetForm = () => {
-    console.log("test reset");
     this.setState({ message: "" });
   };
   onTextChange = event =>
     this.setState({ [event.target.name]: event.target.value });
 
   onSubmit = event => {
-    console.log(this.state);
     event.preventDefault();
     this.props.postMessage(this.state, this.resetForm, this.props.channelID);
   };
 
-  addEmoji = emoji => {
-    this.setState({ message: this.state.message + " " + emoji });
+  // addEmoji = oneEmoji => {
+  //   this.setState({ message: this.state.message + " " + oneEmoji });
+  // };
+
+  handleEmojiClick = (n, e) => {
+    let emoji = jsemoji.replace_colons(`:${e.name}:`);
+    this.setState({
+      message: this.state.message + emoji
+    });
   };
 
   render() {
+    const { open } = this.state;
     return (
       <div className="mt-5 p-2">
         <form onSubmit={this.onSubmit}>
@@ -40,8 +59,19 @@ class MessageForm extends Component {
               value={this.state.message}
               onChange={this.onTextChange}
             />
-
-            <Emoji addEmoji={this.addEmoji} />
+            {/* 
+            <Emoji addEmoji={this.addEmoji} /> */}
+            <div style={{ cursor: "pointer" }} onClick={this.onOpenModal}>
+              {"😎"}
+            </div>
+            <Modal
+              style={{ padding: 20 }}
+              open={open}
+              onClose={this.onCloseModal}
+              center
+            >
+              <EmojiPicker onEmojiClick={this.handleEmojiClick} />
+            </Modal>
           </div>
 
           <input type="submit" value="Add Message" />
