@@ -175,7 +175,7 @@ body.fixed-nav {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin-top: 56px;
+    margin-top: 0px;
   }
   #mainNav .navbar-collapse .navbar-sidenav > .nav-item {
     width: 250px;
@@ -261,7 +261,7 @@ body.fixed-nav {
 
 @media (min-width: 992px) {
   #mainNav.fixed-top .navbar-sidenav {
-    height: calc(100vh - 112px);
+    height: calc(100vh - 55px);
   }
   #mainNav.fixed-top .sidenav-toggler {
     position: absolute;
@@ -283,7 +283,7 @@ body.fixed-nav {
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler {
-  background-color: #212529;
+  background-color: #3598db;
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler a i {
@@ -401,8 +401,9 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   .navbar-sidenav
   > .nav-item
   > .nav-link:hover {
-  border-left: 3px solid #800c0c;
-  color: #adb5bd;
+  border-left: 3px solid #3598db;
+  color: #3598db;
+  background: #3598db21;
 }
 
 #mainNav.navbar-dark
@@ -414,6 +415,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   border-left: none;
   color: #adb5bd;
   font-size: 1.2em;
+  padding-left: 20%;
 }
 
 #mainNav.navbar-dark
@@ -430,8 +432,8 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   .navbar-sidenav
   > .nav-item
   > .nav-link.active {
-  border-left: 3px solid #800c0c;
-  color: #fff;
+  border-left: 3px solid #3598db;
+  color: #3598db;
 }
 
 #mainNav.navbar-dark
@@ -495,7 +497,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 @media (min-width: 992px) {
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
-    background: #2c3b4e;
+    background: #fff;
     overflow-y: scroll;
     overflow: hidden;
   }

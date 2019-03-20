@@ -35,13 +35,24 @@ class SideNav extends React.Component {
     return (
       <div>
         <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
-          <li className="nav-item" data-toggle="tooltip" data-placement="right">
+          <li
+            style={{ position: "fixed", background: "#fff" }}
+            className="nav-item "
+            data-toggle="tooltip"
+            data-placement="right"
+          >
             <Link onClick={this.onOpenModal} className="nav-link heading" to="">
               <span className="nav-link-text mr-2">Channels</span>
               {this.props.user && <FontAwesomeIcon icon={faPlusCircle} />}
             </Link>
             <SearchBar />
           </li>
+        </ul>
+        <ul
+          style={{ marginTop: 130 }}
+          className="navbar-nav navbar-sidenav"
+          id="exampleAccordion"
+        >
           {this.props.user && <>{channelLinks}</>}
         </ul>
         <ul className="navbar-nav sidenav-toggler">

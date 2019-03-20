@@ -3,7 +3,13 @@
 }
 
 .bg-dark {
-  background-color: #16191e !important;
+  background-color: #fff !important;
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+}
+.myColor {
+  color: #01b1f2 !important;
 }
 
 .message_circle {
@@ -169,6 +175,11 @@ input.messageStyleInput {
   background: #fff;
 }
 
+
+.color_nav {
+  color: #fff;
+}
+
 /* 
 .styles_modal__gNwvD {
   max-width: 800px;
@@ -194,6 +205,7 @@ input.messageStyleInput {
   z-index: 1000;
   padding: 1.2rem;
 } */
+
 
 @media (max-width: 991px) {
   .image_style {
