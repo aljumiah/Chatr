@@ -27,14 +27,14 @@ class MessageForm extends Component {
     user: this.props.user,
     channel: this.props.channelID,
     message: "",
-    emojiShown: false,
-    open: false
+    emojiShow: false
   };
 
-  onOpenModal = () => this.setState({ open: true });
-
-  onCloseModal = () => this.setState({ open: false });
-
+  showEmoji = () => {
+    this.state.emojiShow
+      ? this.setState({ emojiShow: false })
+      : this.setState({ emojiShow: true });
+  };
   resetForm = () => {
     this.setState({ message: "" });
   };
@@ -54,10 +54,6 @@ class MessageForm extends Component {
     );
   };
 
-  // addEmoji = oneEmoji => {
-  //   this.setState({ message: this.state.message + " " + oneEmoji });
-  // };
-
   handleEmojiClick = (n, e) => {
     let emoji = jsemoji.replace_colons(`:${e.name}:`);
     this.setState({
@@ -72,60 +68,64 @@ class MessageForm extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="col-12">
             <table style={{ marginBottom: 20 }}>
-              <tr>
-                <td>
-                  <button
-                    style={{ cursor: "pointer" }}
-                    value="Add Message"
-                    style={{ border: "none", background: "none", fontSize: 20 }}
-                  >
-                    <img
-                      style={{ width: 35 }}
-                      onClick={this.onOpenModal}
-                      src={emojiIcone}
-                      alt=""
+              <tbody>
+                <tr>
+                  {/* the emoji button on the left */}
+                  <td>
+                    <div
+                      onClick={this.showEmoji}
+                      style={{ cursor: "pointer" }}
+                      value="Add Message"
+                      style={{
+                        border: "none",
+                        background: "none",
+                        fontSize: 20
+                      }}
+                      type="text"
+                    >
+                      <img
+                        style={{ width: 35, cursor: "pointer" }}
+                        src={emojiIcone}
+                        alt=""
+                      />
+                    </div>
+                  </td>
+
+                  {/* send input textArea */}
+                  <td className="col-12">
+                    <input
+                      type="text"
+                      className="form-control messageStyleInput"
+                      name="message"
+                      value={this.state.message}
+                      onChange={this.onTextChange}
+                      placeholder="Type somthing to send .."
                     />
-                  </button>
-                </td>
-                <td className="col-12">
-                  <input
-                    type="text"
-                    className="form-control messageStyleInput"
-                    name="message"
-                    value={this.state.message}
-                    onChange={this.onTextChange}
-                    placeholder="Type somthing to send .."
-                  />
-                </td>
+                  </td>
 
-                {/* 
-            <Emoji addEmoji={this.addEmoji} /> */}
-
-                <td>
-                  <button
-                    type="submit"
-                    value="Add Message"
-                    style={{
-                      border: "none",
-                      background: "none",
-                      fontSize: 20,
-                      paddingLeft: 20
-                    }}
-                  >
-                    <img src={SendIcone} alt="" />
-                  </button>
-                </td>
-              </tr>
+                  {/* send button on the right */}
+                  <td>
+                    <button
+                      type="submit"
+                      value="Add Message"
+                      style={{
+                        border: "none",
+                        background: "none",
+                        fontSize: 20,
+                        paddingLeft: 20
+                      }}
+                    >
+                      <img src={SendIcone} alt="" />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
             </table>
-            <div>
-              <Modal
-                style={{ padding: 20 }}
-                open={open}
-                onClose={this.onCloseModal}
-                center
-              >
+            {/* the emoji box */}
+            <div className="emoji-table " id="show-emoji-yes">
+              {this.state.emojiShow && (
                 <EmojiPicker onEmojiClick={this.handleEmojiClick} />
-              </Modal>
+              )}
             </div>
           </div>
         </form>
@@ -153,3 +153,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MessageForm);
+
+// function
+// addEmoji = oneEmoji => {
+//   this.setState({ message: this.state.message + " " + oneEmoji });
+// };
+
+// to call the emoji componnent
+//  <Emoji addEmoji={this.addEmoji} />
