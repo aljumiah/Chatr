@@ -169,6 +169,31 @@ input.messageStyleInput {
   background: #fff;
 }
 
+.styles_modal__gNwvD {
+  max-width: 800px;
+  position: relative;
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0);
+  margin: auto;
+}
+
+.styles_overlay__CLSq- {
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  padding: 1.2rem;
+}
+
 @media (max-width: 991px) {
   .image_style {
     left: 0 !important;
