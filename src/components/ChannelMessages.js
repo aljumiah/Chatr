@@ -11,17 +11,14 @@ import Message from "./Message";
 import MessageForm from "./MessageForm";
 
 class ChannelMessages extends Component {
+  interval = setInterval(() => {
+    this.props.getChannel(this.props.match.params.channelID);
+  }, 3000);
+
   componentDidMount() {
     this.props.getChannel(this.props.match.params.channelID);
 
-    // setInterval(
-    //   () => this.props.getChannel(this.props.match.params.channelID),
-    //   3000
-    // );
-
-    //TimeStamp
-
-    this.scrollToBottom();
+    // this.scrollToBottom();
   }
 
   componentDidUpdate(prevState) {
@@ -30,7 +27,19 @@ class ChannelMessages extends Component {
     ) {
       this.props.getChannel(this.props.match.params.channelID);
     }
-    this.scrollToBottom();
+    // this.scrollToBottom();
+  }
+
+  componentWillUpdate(prevState) {
+    if (
+      this.props.user === prevState.user ||
+      prevState.match.params.channelID === this.props.match.params.channelID
+    ) {
+      return this.interval;
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   scrollToBottom = () => {
