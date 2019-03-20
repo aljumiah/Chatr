@@ -22,7 +22,6 @@ import EmojiPicker from "emoji-picker-react";
 import JSEMOJI from "emoji-js";
 let jsemoji = new JSEMOJI();
 
-
 class MessageForm extends Component {
   state = {
     user: this.props.user,
@@ -44,7 +43,15 @@ class MessageForm extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    this.props.postMessage(this.state, this.resetForm, this.props.channelID);
+    this.props.postMessage(
+      {
+        channel: this.state.channel,
+        message: this.state.message,
+        user: this.state.user
+      },
+      this.resetForm,
+      this.props.channelID
+    );
   };
 
   // addEmoji = oneEmoji => {
@@ -68,12 +75,16 @@ class MessageForm extends Component {
               <tr>
                 <td>
                   <button
-                  style={{ cursor: "pointer" }} onClick={this.onOpenModal}
-                    type="submit"
+                    style={{ cursor: "pointer" }}
                     value="Add Message"
                     style={{ border: "none", background: "none", fontSize: 20 }}
                   >
-                    <img style={{ width: 35 }} src={emojiIcone} alt="" />
+                    <img
+                      style={{ width: 35 }}
+                      onClick={this.onOpenModal}
+                      src={emojiIcone}
+                      alt=""
+                    />
                   </button>
                 </td>
                 <td className="col-12">
@@ -87,11 +98,8 @@ class MessageForm extends Component {
                   />
                 </td>
 
-            {/* 
+                {/* 
             <Emoji addEmoji={this.addEmoji} /> */}
-
-    
-
 
                 <td>
                   <button
@@ -109,14 +117,16 @@ class MessageForm extends Component {
                 </td>
               </tr>
             </table>
-               <Modal
-              style={{ padding: 20 }}
-              open={open}
-              onClose={this.onCloseModal}
-              center
-            >
-              <EmojiPicker onEmojiClick={this.handleEmojiClick} />
-            </Modal>
+            <div>
+              <Modal
+                style={{ padding: 20 }}
+                open={open}
+                onClose={this.onCloseModal}
+                center
+              >
+                <EmojiPicker onEmojiClick={this.handleEmojiClick} />
+              </Modal>
+            </div>
           </div>
         </form>
       </div>
