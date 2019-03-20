@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 import Message from "./Message";
 import MessageForm from "./MessageForm";
+import defaultBack from "../assets/images/back.jpg";
 
 class ChannelMessages extends Component {
   interval = setInterval(() => {
@@ -68,7 +69,9 @@ class ChannelMessages extends Component {
           <div
             className="content_chat image_style"
             style={{
-              backgroundImage: ` url(${chatBackGround.image_url})`,
+              backgroundImage: chatBackGround.image_url
+                ? ` url(${chatBackGround.image_url})`
+                : `url(${defaultBack})`,
               position: "fixed",
 
               backgroundRepeat: "no-repeat",

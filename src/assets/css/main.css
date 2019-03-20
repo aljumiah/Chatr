@@ -413,11 +413,21 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   > .nav-link.heading {
   transition: all 0.2s ease-out;
   border-left: none;
-  color: #adb5bd;
+  color: #ffffff;
   font-size: 1.2em;
   padding-left: 20%;
 }
 
+.navbar-dark .navbar-toggler-icon {
+  background-image: url(../images/menu.png) !important;
+}
+
+.input-group > .custom-select:not(:last-child),
+.input-group > .form-control:not(:last-child) {
+  border-radius: 50px 50px 50px 50px;
+  border-top-right-radius: 50px !important;
+  border-bottom-right-radius: 50px !important;
+}
 #mainNav.navbar-dark
   .navbar-collapse
   .navbar-sidenav
@@ -434,6 +444,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   > .nav-link.active {
   border-left: 3px solid #3598db;
   color: #3598db;
+  background: #3598db21;
 }
 
 #mainNav.navbar-dark
