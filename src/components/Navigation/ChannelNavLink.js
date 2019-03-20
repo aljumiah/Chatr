@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 // FontAwesome
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faHashtag } from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +16,11 @@ class ChannelNavLink extends Component {
         data-placement="right"
         title={channel.name}
       >
-        <NavLink className="nav-link" to={`/channels/${channel.id}`}>
+        <NavLink
+          key={channel.name}
+          className="nav-link"
+          to={`/channels/${channel.id}`}
+        >
           <img
             className="rounded-circle rounded-circle_border"
             src={
@@ -33,4 +38,9 @@ class ChannelNavLink extends Component {
   }
 }
 
-export default ChannelNavLink;
+export default withRouter(
+  connect(
+    null,
+    null
+  )(ChannelNavLink)
+);

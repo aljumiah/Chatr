@@ -3,7 +3,13 @@
 }
 
 .bg-dark {
-  background-color: #16191e !important;
+  background-color: #fff !important;
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+}
+.myColor {
+  color: #01b1f2 !important;
 }
 
 .message_circle {
@@ -167,6 +173,10 @@ input.messageStyleInput {
   border-radius: 100px 100px 100px 100px;
   padding: 0px 0px 0px 10px;
   background: #fff;
+}
+
+.color_nav {
+  color: #fff;
 }
 
 @media (max-width: 991px) {

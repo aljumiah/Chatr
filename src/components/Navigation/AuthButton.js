@@ -22,7 +22,7 @@ class AuthButton extends Component {
         onClick={() => this.props.logout(this.props.history)}
         className="nav-item"
       >
-        <span className="nav-link">
+        <span className=" myColor nav-link">
           <FontAwesomeIcon icon={faSignOutAlt} /> Logout
         </span>
       </li>
@@ -31,12 +31,16 @@ class AuthButton extends Component {
     if (!user) {
       buttons = [
         <li key="loginButton" className="nav-item">
-          <Link to="/login" className="nav-link">
+          <Link
+            style={{ color: "#01b1f2" }}
+            to="/login"
+            className=" myColor nav-link"
+          >
             <FontAwesomeIcon icon={faSignInAlt} /> Login
           </Link>
         </li>,
         <li key="signupButton" className="nav-item">
-          <Link to="/signup" className="nav-link">
+          <Link to="/signup" className="myColor nav-link">
             <FontAwesomeIcon icon={faUserPlus} /> Signup
           </Link>
         </li>
@@ -45,7 +49,9 @@ class AuthButton extends Component {
 
     return (
       <ul className="navbar-nav ml-auto">
-        <span className="navbar-text">{user && user.username}</span>
+        <span style={{ color: "#868e96" }} className="  navbar-text">
+          {user && user.username}
+        </span>
         {buttons}
       </ul>
     );

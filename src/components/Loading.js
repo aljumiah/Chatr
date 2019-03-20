@@ -4,7 +4,12 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Loading = () => (
   <div className="spinner mx-auto text-center">
-    <FontAwesomeIcon icon={faSpinner} spin size="4x" />
+    <FontAwesomeIcon
+      icon={faSpinner}
+      spin
+      size="4x"
+      style={{ color: "#3598db" }}
+    />
   </div>
 );
 
