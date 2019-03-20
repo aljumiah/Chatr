@@ -7,10 +7,12 @@ import Loading from "./Loading";
 import { connect } from "react-redux";
 
 import * as actionCreators from "../store/actions";
+//import imgLoading from "../assets/images/Ellipsis.gif";
 
 class Meassage extends Component {
   render() {
     const message = this.props.message;
+
     return (
       <>
         {message.username === this.props.user.username ? (

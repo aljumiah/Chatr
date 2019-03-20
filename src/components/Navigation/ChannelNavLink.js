@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+
 // FontAwesome
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 import tv from "../../assets/images/television.png";
 
 class ChannelNavLink extends Component {
+  state = {
+    active: false
+  };
+  // showthis = id => {
+  //   let path = this.props.history.location.pathname;
+  //   if (this.props.history.location.pathname === `/channels/${id}`) {
+  //     this.setState({ active: true });
+  //   }
+  // };
+
   render() {
     const { channel } = this.props;
     return (
@@ -20,6 +30,7 @@ class ChannelNavLink extends Component {
           key={channel.name}
           className="nav-link"
           to={`/channels/${channel.id}`}
+          //onClick={() => this.showthis(channel.id)}
         >
           <img
             className="rounded-circle rounded-circle_border"
@@ -38,9 +49,4 @@ class ChannelNavLink extends Component {
   }
 }
 
-export default withRouter(
-  connect(
-    null,
-    null
-  )(ChannelNavLink)
-);
+export default withRouter(ChannelNavLink);

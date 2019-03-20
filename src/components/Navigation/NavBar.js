@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 // Components
 import SideNav from "./SideNav";
@@ -9,14 +9,14 @@ class NavBar extends Component {
   render() {
     return (
       <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+        className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top color_nav"
         id="mainNav"
       >
         <Link className="navbar-brand" to="/welcome">
           Chatr2.0
         </Link>
         <button
-          className="navbar-toggler navbar-toggler-right"
+          className="navbar-toggler navbar-toggler-right myColor"
           type="button"
           data-toggle="collapse"
           data-target="#navbarResponsive"
@@ -24,7 +24,7 @@ class NavBar extends Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon" />
+          <span className="navbar-toggler-icon myColor" />
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <SideNav />
@@ -35,4 +35,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

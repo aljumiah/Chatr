@@ -49,7 +49,7 @@ class AuthButton extends Component {
 
     return (
       <ul className="navbar-nav ml-auto">
-        <span style={{ color: "#868e96" }} className="  navbar-text">
+        <span style={{ color: "#3597db" }} className="  navbar-text">
           {user && user.username}
         </span>
         {buttons}

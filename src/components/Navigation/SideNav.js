@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,6 +14,7 @@ import ChannelForm from "../ChannelForm";
 // Components
 import ChannelNavLink from "./ChannelNavLink";
 import SearchBar from "../SearchBar";
+//import imgLoading from "../../assets/images/Ellipsis.gif";
 
 class SideNav extends React.Component {
   state = { collapsed: false, open: false };
@@ -23,6 +24,7 @@ class SideNav extends React.Component {
   onCloseModal = () => this.setState({ open: false });
 
   render() {
+    //console.log(this.props.match.params.channelID);
     const { open } = this.state;
     const channelLinks = this.props.filteredChannels.map(channel => (
       <ChannelNavLink
@@ -41,7 +43,12 @@ class SideNav extends React.Component {
             data-toggle="tooltip"
             data-placement="right"
           >
-            <Link onClick={this.onOpenModal} className="nav-link heading" to="">
+            <Link
+              style={{ color: "#2ed265" }}
+              onClick={this.onOpenModal}
+              className="nav-link heading"
+              to=""
+            >
               <span className="nav-link-text mr-2">Channels</span>
               {this.props.user && <FontAwesomeIcon icon={faPlusCircle} />}
             </Link>
@@ -53,7 +60,7 @@ class SideNav extends React.Component {
           className="navbar-nav navbar-sidenav"
           id="exampleAccordion"
         >
-          {this.props.user && <>{channelLinks}</>}
+          {this.props.user ? <>{channelLinks}</> : <div />}
         </ul>
         <ul className="navbar-nav sidenav-toggler">
           <li className="nav-item">
@@ -88,4 +95,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(SideNav);
+export default withRouter(connect(mapStateToProps)(SideNav));
