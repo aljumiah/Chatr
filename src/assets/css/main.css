@@ -490,10 +490,14 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   color: #adb5bd;
 }
 
+.circleUSerImg {
+}
+
 @media (min-width: 992px) {
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
-    background: #2b2e31;
+    background: #2c3b4e;
     overflow-y: scroll;
+    overflow: hidden;
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
     color: white !important;

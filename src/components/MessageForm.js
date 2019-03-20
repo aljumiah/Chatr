@@ -4,12 +4,24 @@ import Modal from "react-responsive-modal";
 
 // Actions
 import * as actionCreators from "../store/actions";
+
+// Fontawesome
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faSignOutAlt,
+//   faSignInAlt,
+//   faUserPlus
+// } from "@fortawesome/free-solid-svg-icons";
+import SendIcone from "../assets/images/send-button.png";
+import emojiIcone from "../assets/images/happy.png";
+
 import Emoji from "./Emoji.js";
 
 //emoji
 import EmojiPicker from "emoji-picker-react";
 import JSEMOJI from "emoji-js";
 let jsemoji = new JSEMOJI();
+
 
 class MessageForm extends Component {
   state = {
@@ -49,22 +61,55 @@ class MessageForm extends Component {
   render() {
     const { open } = this.state;
     return (
-      <div className="mt-5 p-2">
+      <div className="col-12">
         <form onSubmit={this.onSubmit}>
-          <div className="">
-            <input
-              type="text"
-              className="form-control messageStyleInput"
-              name="message"
-              value={this.state.message}
-              onChange={this.onTextChange}
-            />
+          <div className="col-12">
+            <table style={{ marginBottom: 20 }}>
+              <tr>
+                <td>
+                  <button
+                  style={{ cursor: "pointer" }} onClick={this.onOpenModal}
+                    type="submit"
+                    value="Add Message"
+                    style={{ border: "none", background: "none", fontSize: 20 }}
+                  >
+                    <img style={{ width: 35 }} src={emojiIcone} alt="" />
+                  </button>
+                </td>
+                <td className="col-12">
+                  <input
+                    type="text"
+                    className="form-control messageStyleInput"
+                    name="message"
+                    value={this.state.message}
+                    onChange={this.onTextChange}
+                    placeholder="Type somthing to send .."
+                  />
+                </td>
+
             {/* 
             <Emoji addEmoji={this.addEmoji} /> */}
-            <div style={{ cursor: "pointer" }} onClick={this.onOpenModal}>
-              {"😎"}
-            </div>
-            <Modal
+
+    
+
+
+                <td>
+                  <button
+                    type="submit"
+                    value="Add Message"
+                    style={{
+                      border: "none",
+                      background: "none",
+                      fontSize: 20,
+                      paddingLeft: 20
+                    }}
+                  >
+                    <img src={SendIcone} alt="" />
+                  </button>
+                </td>
+              </tr>
+            </table>
+               <Modal
               style={{ padding: 20 }}
               open={open}
               onClose={this.onCloseModal}
@@ -73,8 +118,6 @@ class MessageForm extends Component {
               <EmojiPicker onEmojiClick={this.handleEmojiClick} />
             </Modal>
           </div>
-
-          <input type="submit" value="Add Message" />
         </form>
       </div>
     );

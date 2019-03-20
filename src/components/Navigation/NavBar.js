@@ -28,7 +28,7 @@ class NavBar extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <SideNav />
-          <AuthButton />
+          <AuthButton history={this.props.history} />
         </div>
       </nav>
     );

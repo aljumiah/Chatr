@@ -52,7 +52,6 @@ class ChannelMessages extends Component {
         return <Loading />;
       } else {
         //--------------------adding pictures to the background ------------------------
-
         const channelID = this.props.match.params.channelID;
         const chatBackGround =
           this.props.channels.find(channel => channel.id === +channelID) || {};
@@ -79,8 +78,8 @@ class ChannelMessages extends Component {
           >
             {/* -----------------^^-----the Start--& end^^------------------------- */}
             <div className="coverBack" />
-            <div style={{ overflowY: "scroll", height: 700 }}>
-              <div>{channel}</div>
+            <div className="chat_overflow">
+              <div className="col-12">{channel}</div>
             </div>
             <div className="backgroundInput">
               <MessageForm channelID={this.props.match.params.channelID} />
@@ -89,7 +88,7 @@ class ChannelMessages extends Component {
         );
       }
     } else {
-      return <h1>You need to sign in to see the channel's messages</h1>;
+      return <h1>You need to sign in to see the messages</h1>;
     }
   }
 }

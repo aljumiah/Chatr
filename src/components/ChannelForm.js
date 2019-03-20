@@ -17,7 +17,12 @@ class ChannelForm extends Component {
 
   submitChannel = event => {
     event.preventDefault();
-    this.props.postChannel(this.state, this.resetForm, this.props.history);
+    this.props.postChannel(
+      this.state,
+      this.resetForm,
+      this.props.history,
+      this.props.close
+    );
   };
 
   resetForm = () => this.setState({ name: "", image_url: "" });
@@ -65,7 +70,9 @@ class ChannelForm extends Component {
               onChange={this.onTextchange}
             />
           </div>
-          <input type="submit" />
+          <button className="btn btn-success" type="submit">
+            Add
+          </button>
         </form>
       </div>
     );
@@ -80,8 +87,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    postChannel: (newChannel, reset, history) =>
-      dispatch(actionCreators.postChannel(newChannel, reset, history)),
+    postChannel: (newChannel, reset, history, close) =>
+      dispatch(actionCreators.postChannel(newChannel, reset, history, close)),
     setErrors: () => dispatch(actionCreators.setErrors({}))
   };
 };

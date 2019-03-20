@@ -40,7 +40,7 @@ const setAuthToken = token => {
   }
 };
 
-export const login = (userData, history) => {
+export const login = (userData, history, fetch) => {
   return async dispatch => {
     try {
       let response = await instance.post("login/", userData);
@@ -49,6 +49,7 @@ export const login = (userData, history) => {
       setAuthToken(user.token);
       dispatch(setCurrentUser(jwt_decode(user.token)));
       history.push("/welcome");
+      fetch();
     } catch (err) {
       console.error(err.response);
       setErrors(err.response);
@@ -73,8 +74,9 @@ export const signup = (userData, history) => {
   };
 };
 
-export const logout = () => {
+export const logout = history => {
   setAuthToken();
+  history.push("/login");
   return setCurrentUser();
 };
 

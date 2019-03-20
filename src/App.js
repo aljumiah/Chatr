@@ -31,12 +31,11 @@ class App extends Component {
   render() {
     return (
       <div className="content-wrapper">
-        <NavBar />
+        <NavBar history={this.props.history} />
         <Switch>
           <Route path="/welcome" component={Welcome} />
           <Route path="/createChannel" component={ChannelForm} />
           <Route path="/channels/:channelID/send/" component={MessageForm} />
-
           <Route path="/channels/:channelID" component={ChannelMessages} />
           <Route path="/(login|signup)" component={RegistrationForm} />
           <PrivateRoute path="/private" component={SuperSecretPage} />
