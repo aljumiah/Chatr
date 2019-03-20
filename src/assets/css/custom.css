@@ -175,9 +175,37 @@ input.messageStyleInput {
   background: #fff;
 }
 
+
 .color_nav {
   color: #fff;
 }
+
+/* 
+.styles_modal__gNwvD {
+  max-width: 800px;
+  position: relative;
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0);
+  margin: auto;
+}
+
+.styles_overlay__CLSq- {
+  background: rgba(0, 0, 0, 0.479);
+  display: flex;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  padding: 1.2rem;
+} */
+
 
 @media (max-width: 991px) {
   .image_style {
@@ -186,4 +214,27 @@ input.messageStyleInput {
   .chat_overflow {
     left: 0;
   }
+}
+
+.emoji-table {
+  position: fixed;
+  bottom: 7%;
+  right: 22%;
+  opacity: 0.6;
+}
+.emoji-table:hover {
+  opacity: 0.9;
+}
+
+#show-emoji-yes:hover {
+  opacity: 0.9;
+  transition-duration: 10ms;
+}
+
+#show-emoji-yes {
+  opacity: 0.5;
+  width: 30px;
+  position: fixed;
+  bottom: 15%;
+  margin-right: 55%;
 }
