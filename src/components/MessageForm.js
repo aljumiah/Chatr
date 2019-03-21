@@ -67,11 +67,11 @@ class MessageForm extends Component {
       <div className="col-12">
         <form onSubmit={this.onSubmit}>
           <div className="col-12">
-            <table style={{ marginBottom: 20 }}>
-              <tbody>
-                <tr>
+            <table className="col-12" style={{ marginBottom: 20 }}>
+              <tbody className="col-12">
+                <tr className="col-12">
                   {/* the emoji button on the left */}
-                  <td>
+                  <td className="col-2">
                     <div
                       onClick={this.showEmoji}
                       style={{ cursor: "pointer" }}
@@ -79,7 +79,8 @@ class MessageForm extends Component {
                       style={{
                         border: "none",
                         background: "none",
-                        fontSize: 20
+                        fontSize: 20,
+                        paddingLeft: 20
                       }}
                       type="text"
                     >
@@ -92,7 +93,7 @@ class MessageForm extends Component {
                   </td>
 
                   {/* send input textArea */}
-                  <td className="col-12">
+                  <td className="col-8">
                     <input
                       type="text"
                       className="form-control messageStyleInput"
@@ -104,7 +105,7 @@ class MessageForm extends Component {
                   </td>
 
                   {/* send button on the right */}
-                  <td>
+                  <td className="col-2">
                     <button
                       type="submit"
                       value="Add Message"

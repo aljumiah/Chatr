@@ -4,18 +4,29 @@ import { Link, withRouter } from "react-router-dom";
 // Components
 import SideNav from "./SideNav";
 import AuthButton from "./AuthButton";
-
+import user from "../../assets/images/user.png";
 class NavBar extends Component {
   render() {
     return (
-      <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top color_nav"
-        id="mainNav"
-      >
-        <Link className="navbar-brand" to="/welcome">
-          Chatr2.0
+      <nav style={{ marginTop: 10 }} className="color_nav col-12" id="mainNav">
+        <Link className="col-2" to="/welcome">
+          <img
+            style={{
+              width: 60,
+              height: 60,
+              border: " solid white",
+              borderRadius: 50,
+              paddingTop: 5,
+              marginLeft: 40
+            }}
+            src={user}
+            alt=""
+          />
         </Link>
-        <button
+        <div className="col-10">
+          <AuthButton history={this.props.history} />
+        </div>
+        {/* <button
           className="navbar-toggler navbar-toggler-right myColor"
           type="button"
           data-toggle="collapse"
@@ -25,10 +36,9 @@ class NavBar extends Component {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon myColor" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarResponsive">
+        </button> */}
+        <div className="col-12" id="navbarResponsive">
           <SideNav />
-          <AuthButton history={this.props.history} />
         </div>
       </nav>
     );

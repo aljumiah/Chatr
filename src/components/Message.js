@@ -17,19 +17,14 @@ class Meassage extends Component {
       <>
         {message.username === this.props.user.username ? (
           <div className="col-12" style={{ marginBottom: 50 }}>
-            <div className=" messageLabel">
-              <p className="circleUSerImg1 messageuser">
+            <div className=" ">
+              <p className="">
                 YOU
-                <span className="messagedate">
-                  {message.timestamp.substring(0, 10)}
-                </span>
+                <span className="">{message.timestamp.substring(0, 10)}</span>
               </p>
             </div>
-            <li
-              className=" message_circle2 list-group-item "
-              style={{ marginRight: 10 }}
-            >
-              <div className="row ">
+            <li className="" style={{}}>
+              <div className="">
                 <div className="col-7">{message.message}</div>
                 <div className="col-5" />
               </div>
@@ -37,16 +32,14 @@ class Meassage extends Component {
           </div>
         ) : (
           <>
-            <div className="col-12 messageLabel">
-              <p className="circleUSerImg messageuser">
+            <div className="col-12 ">
+              <p className=" ">
                 {message.username}
-                <span className="messagedate">
-                  {message.timestamp.substring(0, 10)}
-                </span>
+                <span className="">{message.timestamp.substring(0, 10)}</span>
               </p>
             </div>
-            <li className="message_circle list-group-item">
-              <div className="row ">
+            <li className="">
+              <div className="">
                 <div className="col-12">{message.message}</div>
                 <div className="col-12" />
               </div>

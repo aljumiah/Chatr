@@ -64,27 +64,27 @@ class ChannelMessages extends Component {
             user={this.props.user}
           />
         ));
-
+        // backgroundImage: chatBackGround.image_url
+        // ? ` url(${chatBackGround.image_url})`
+        // : `url(${defaultBack})`,
         return (
           <div
-            className="content_chat image_style"
+            className="col-12 "
             style={{
-              backgroundImage: chatBackGround.image_url
-                ? ` url(${chatBackGround.image_url})`
-                : `url(${defaultBack})`,
-              position: "fixed",
-
+              position: "",
+              background: "white",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-              filter: "alpha((opacity = 50))"
+              filter: "alpha((opacity = 50))",
+              borderRadius: 20
             }}
           >
             {/* -----------------^^-----the Start--& end^^------------------------- */}
-            <div className="coverBack" />
-            <div className="chat_overflow">
+            <div className="" />
+            <div className=" col-12 chat_overflow">
               <div className="col-12">{channel}</div>
             </div>
-            <div className="backgroundInput">
+            <div className="">
               <MessageForm channelID={this.props.match.params.channelID} />
             </div>
           </div>
