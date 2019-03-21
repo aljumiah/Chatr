@@ -91,6 +91,7 @@ input.messageStyleInput {
   top: 0;
   right: 0;
   left: 250px;
+  margin-top: 60px;
 }
 .message_circle2 {
   width: 30%;
