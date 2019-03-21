@@ -14,6 +14,7 @@ export default class Counter extends Component {
     if (prevState.numberOfMessages !== this.props.numberOfMessages) {
       this.scrollToBottom();
     }
+    console.log(prevState.numberOfMessages);
   }
 
   scrollToBottom = () => {
