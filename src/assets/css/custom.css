@@ -46,9 +46,7 @@
   border-width: 10px;
   margin-left: -10px;
 }
-.emoji-picker {
-  margin: 20px;
-}
+
 .messageLabel {
   margin-left: 35px;
   margin-bottom: 13px;
@@ -175,7 +173,6 @@ input.messageStyleInput {
   background: #fff;
 }
 
-
 .color_nav {
   color: #fff;
 }
@@ -206,7 +203,6 @@ input.messageStyleInput {
   padding: 1.2rem;
 } */
 
-
 @media (max-width: 991px) {
   .image_style {
     left: 0 !important;
@@ -218,9 +214,11 @@ input.messageStyleInput {
 
 .emoji-table {
   position: fixed;
-  bottom: 7%;
-  right: 22%;
+  bottom: 100%;
+  right: 10%;
   opacity: 0.6;
+  width: 30px;
+  top: 7%;
 }
 .emoji-table:hover {
   opacity: 0.9;

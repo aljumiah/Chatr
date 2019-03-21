@@ -11,6 +11,7 @@ import * as actionCreators from "../store/actions";
 class Meassage extends Component {
   render() {
     const message = this.props.message;
+
     return (
       <>
         {message.username === this.props.user.username ? (

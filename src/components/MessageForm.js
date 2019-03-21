@@ -52,6 +52,7 @@ class MessageForm extends Component {
       this.resetForm,
       this.props.channelID
     );
+    this.setState({ emojiShow: false, message: "" });
   };
 
   handleEmojiClick = (n, e) => {
@@ -123,6 +124,7 @@ class MessageForm extends Component {
             </table>
             {/* the emoji box */}
             <div className="emoji-table " id="show-emoji-yes">
+              {/* if emojiShow set to TRUE show it else hide it  */}
               {this.state.emojiShow && (
                 <EmojiPicker onEmojiClick={this.handleEmojiClick} />
               )}

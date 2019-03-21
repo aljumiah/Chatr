@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 import Message from "./Message";
 import MessageForm from "./MessageForm";
+import Counter from "./Counter";
 
 class ChannelMessages extends Component {
   interval = setInterval(() => {
@@ -18,7 +19,8 @@ class ChannelMessages extends Component {
   componentDidMount() {
     this.props.getChannel(this.props.match.params.channelID);
 
-    // this.scrollToBottom();
+    // this.setState({ numberOfMessages: this.props.channel.length });
+    // console.log(this.props.channel.length);
   }
 
   componentDidUpdate(prevState) {
@@ -27,6 +29,7 @@ class ChannelMessages extends Component {
     ) {
       this.props.getChannel(this.props.match.params.channelID);
     }
+
     // this.scrollToBottom();
   }
 
@@ -43,8 +46,20 @@ class ChannelMessages extends Component {
   }
 
   scrollToBottom = () => {
-    window.scrollTo(0, document.body.scrollHeight);
+    const bottom = document.getElementById("bottom");
+
+    if (bottom) bottom.scrollIntoView({ behavior: "smooth" });
   };
+
+  channel() {
+    return this.props.channel.map((message, idx) => (
+      <Message
+        key={message.id + idx}
+        message={message}
+        user={this.props.user}
+      />
+    ));
+  }
 
   render() {
     if (this.props.user) {
@@ -56,14 +71,7 @@ class ChannelMessages extends Component {
         const chatBackGround =
           this.props.channels.find(channel => channel.id === +channelID) || {};
         //--------------------------------------now we can use it in the return --------
-        const channel = this.props.channel.map((message, idx) => (
-          <Message
-            key={message.id + idx}
-            message={message}
-            user={this.props.user}
-          />
-        ));
-
+        // console.log(this.channel().length);
         return (
           <div
             className="content_chat image_style"
@@ -79,10 +87,16 @@ class ChannelMessages extends Component {
             {/* -----------------^^-----the Start--& end^^------------------------- */}
             <div className="coverBack" />
             <div className="chat_overflow">
-              <div className="col-12">{channel}</div>
+              <div className="col-12">
+                {this.channel()}
+
+                <div id="bottom" />
+              </div>
             </div>
+
             <div className="backgroundInput">
               <MessageForm channelID={this.props.match.params.channelID} />
+              <Counter numberOfMessages={this.props.longOfText} />
             </div>
           </div>
         );
@@ -97,6 +111,7 @@ const mapStateToProps = state => {
     channel: state.rootChannel.channel,
     channels: state.rootChannels.channels,
     loading: state.rootChannel.loading,
+    longOfText: state.rootChannel.longOfText,
     user: state.auth.user
   };
 };
