@@ -21,7 +21,8 @@ body.fixed-nav {
 
 .content-wrapper {
   min-height: calc(100vh - 56px);
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
+  margin-top: 20px;
 }
 
 .scroll-to-top {
@@ -343,7 +344,7 @@ body.sidenav-toggled #mainNav.static-top #sidenavToggler i {
 
 @media (min-width: 992px) {
   .content-wrapper {
-    margin-left: 250px;
+    /* margin-left: 250px; */
   }
 }
 
@@ -673,7 +674,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 }
 
 footer.sticky-footer {
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   bottom: 0;
   width: 100%;

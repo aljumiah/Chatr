@@ -1,5 +1,6 @@
 .content-wrapper {
-  background: #f1f2f7;
+  background: #65b2e5;
+  border-radius: 20px;
 }
 
 .bg-dark {
@@ -9,9 +10,12 @@
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
 }
 .myColor {
-  color: #b3d7ff !important;
+  color: #fff !important;
 }
 
+.SearchStyle {
+  color: #000 !important;
+}
 .message_circle {
   display: block;
   background-color: #fff;
@@ -44,7 +48,6 @@
   pointer-events: none;
   border-bottom-color: #fff;
   border-width: 10px;
-  margin-left: -10px;
 }
 
 .messageLabel {
@@ -69,7 +72,7 @@ input.messageStyleInput {
   padding-bottom: 60px;
   margin-top: 30px;
   padding-left: 30px;
-  background: #fff;
+  background: none;
   border: 1px solid #e7e7e7;
   position: fixed;
   bottom: 0;
@@ -84,12 +87,14 @@ input.messageStyleInput {
 
 .chat_overflow {
   overflow-y: scroll;
-  position: fixed;
+  height: 420px;
+  /* position: fixed;
   bottom: 120px;
   top: 0;
   right: 0;
   left: 250px;
-  margin-top: 60px;
+  margin-top: 60px; */
+  margin: 10px;
 }
 .message_circle2 {
   width: 30%;
@@ -236,4 +241,186 @@ input.messageStyleInput {
   position: fixed;
   bottom: 15%;
   margin-right: 55%;
+}
+
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+
+.ulChats {
+  display: inline-flex;
+  overflow-y: scroll;
+  height: 160px;
+  list-style-type: none;
+  background: #fff;
+  border-radius: 20px 20px 20px 20px;
+  padding: 20px !important;
+  width: 98% !important;
+  margin-left: 1%;
+}
+
+.body_content {
+  padding-left: 150px;
+  padding-right: 150px;
+  width: 870px;
+  background: url("https://jllsly.com/wallpapers/galaxy-tumblr-wallpaper-picture-Is-Cool-Wallpapers.jpg");
+}
+ul.ulChats li a span {
+  /* display: none; */
+  font-size: 10px;
+}
+
+.divMessagePeople {
+  background: white;
+  border-radius: 20px;
+  padding: 14px !important;
+  background: #e9ecef;
+}
+
+.divMessagePeople:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 7px solid #e9ecef;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #e9ecef;
+  border-bottom: 7px solid transparent;
+  transform: scale(-1, 1);
+  top: 10px;
+  right: 99%;
+}
+.divMessageUser:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 7px solid #65b2e5;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #65b2e5;
+  border-bottom: 7px solid transparent;
+  right: -11px;
+  top: 10px;
+}
+
+.divMessageUser {
+  background: #65b2e5;
+  border-radius: 20px;
+  padding: 14px !important;
+  float: right !important;
+}
+
+.divMessageLebelPeople {
+}
+.divMessageLebelUser {
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.chatbox {
+  width: 98% !important;
+  margin-left: 1%;
+}
+.styles_modal__gNwvD {
+  border-radius: 20px;
+}
+.margin_top {
+  margin-top: 100px !important;
+}
+/****************************************************************************/
+/****************************************************************************/
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  border: 1px solid red;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+  /* border: 1px solid red; */
+}
+
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+/****************************************************************************/
+/****************************************************************************/
+@media (min-width: 991px) {
+  .body_content {
+    width: 1280px;
+    padding-left: 570px;
+  }
+}
+
+@media (max-width: 1170px) {
+  .body_content {
+    width: 1200px;
+    padding-left: 470px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .body_content {
+    width: 1000px;
+    padding-left: 300px;
+  }
+}
+
+@media (max-width: 860px) {
+  .body_content {
+    width: 900px;
+    padding-left: 200px;
+  }
+}
+@media (max-width: 760px) {
+  .body_content {
+    width: 700px;
+    padding-left: 10px;
+  }
 }

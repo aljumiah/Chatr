@@ -8,6 +8,8 @@ import { connect } from "react-redux";
 
 import * as actionCreators from "../store/actions";
 //import imgLoading from "../assets/images/Ellipsis.gif";
+import peopleImg from "../assets/images/anou.jpg";
+import usereImg from "../assets/images/userimg.png";
 
 class Meassage extends Component {
   render() {
@@ -16,42 +18,95 @@ class Meassage extends Component {
     return (
       <>
         {message.username === this.props.user.username ? (
-          <div className="col-12" style={{ marginBottom: 50 }}>
-            <div className=" messageLabel">
-              <p className="circleUSerImg1 messageuser">
-                YOU
-                <span className="messagedate">
+          <div className="col-12 " style={{ marginTop: 20 }}>
+            <div className="col-10">
+              <div className="col-12 divMessageLebelUser ">
+                <div
+                  className="col-6"
+                  style={{
+                    float: "right",
+                    textAlign: "right",
+                    color: "#b4b5ba"
+                  }}
+                >
                   {message.timestamp.substring(0, 10)}
-                </span>
-              </p>
-            </div>
-            <li
-              className=" message_circle2 list-group-item "
-              style={{ marginRight: 10 }}
-            >
-              <div className="row ">
-                <div className="col-7">{message.message}</div>
-                <div className="col-5" />
+                  {"   "}
+                  {message.timestamp.substring(11, 16)}
+                </div>
               </div>
-            </li>
+              <div className="col-12 " style={{}}>
+                <div
+                  style={{ float: "right", textAlign: "right" }}
+                  className="col-8 divMessageUser animated fadeInUp text-break"
+                >
+                  {message.message}
+                </div>
+              </div>
+            </div>
+            <div className="col-2" style={{ paddingRight: 20 }}>
+              <img
+                className="col-12"
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 100,
+                  float: "right",
+                  textAlign: "right",
+                  border: "1px solid #df4a6b",
+                  padding: 2
+                }}
+                src={usereImg}
+                alt="usereImg"
+              />
+              <div
+                style={{ float: "right", textAlign: "right", paddingRight: 10 }}
+                className="col-12"
+              >
+                {" "}
+                YOU{" "}
+              </div>
+            </div>
           </div>
         ) : (
-          <>
-            <div className="col-12 messageLabel">
-              <p className="circleUSerImg messageuser">
-                {message.username}
-                <span className="messagedate">
-                  {message.timestamp.substring(0, 10)}
-                </span>
-              </p>
-            </div>
-            <li className="message_circle list-group-item">
-              <div className="row ">
-                <div className="col-12">{message.message}</div>
-                <div className="col-12" />
+          <div className="col-12 " style={{ marginTop: 20 }}>
+            <div className="col-2" style={{ paddingLeft: 20 }}>
+              <img
+                className="col-12"
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 100,
+                  border: "1px solid #df4a6b",
+                  padding: 2
+                }}
+                src={peopleImg}
+                alt="peopleImg"
+              />
+              <div className="col-12" style={{ paddingLeft: 0 }}>
+                {" "}
+                {message.username.substring(0, 7)}
               </div>
-            </li>
-          </>
+            </div>
+            <div className="col-10">
+              <div className="col-12 divMessageLebelPeople">
+                <div className="col-6" style={{ color: "#b4b5ba" }}>
+                  {message.timestamp.substring(0, 10)}
+                  {"       "}
+                  {message.timestamp.substring(11, 16)}
+                </div>
+              </div>
+
+              <div className="col-8">
+                <div className="col-12 divMessagePeople animated fadeInUp text-break">
+                  {message.message}
+                </div>
+              </div>
+              <div
+                className="col-4"
+                style={{ color: "#b4b5ba", paddingTop: 10 }}
+              />
+            </div>
+          </div>
         )}
       </>
     );

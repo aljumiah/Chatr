@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-responsive-modal";
 import ChannelForm from "../ChannelForm";
-
+import add_icone from "../../assets/images/add.png";
 // Components
 import ChannelNavLink from "./ChannelNavLink";
 import SearchBar from "../SearchBar";
@@ -27,46 +27,56 @@ class SideNav extends React.Component {
     //console.log(this.props.match.params.channelID);
     const { open } = this.state;
     const channelLinks = this.props.filteredChannels.map(channel => (
-      <ChannelNavLink
-        className="divStyle"
-        key={channel.name}
-        channel={channel}
-      />
+      <ChannelNavLink className="" key={channel.name} channel={channel} />
     ));
 
     return (
       <div>
-        <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <ul style={{ margin: 0, padding: 0 }} className="" id="">
           <li
-            style={{ position: "fixed", background: "#fff" }}
-            className="nav-item "
+            style={{ position: "", background: "#" }}
+            className=""
             data-toggle="tooltip"
             data-placement="right"
           >
-            <Link
-              style={{ color: "#2ed265" }}
-              onClick={this.onOpenModal}
-              className="nav-link heading"
-              to=""
-            >
-              <span className="nav-link-text mr-2">Channels</span>
-              {this.props.user && <FontAwesomeIcon icon={faPlusCircle} />}
-            </Link>
-            <SearchBar />
+            <div className="col-10">
+              <SearchBar />
+            </div>
+            <div className="col-2">
+              <Link
+                style={{ color: "#2ed265" }}
+                onClick={this.onOpenModal}
+                className=""
+                to=""
+              >
+                <div>
+                  {this.props.user && (
+                    <img
+                      style={{
+                        width: 70,
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                        paddingLeft: 20
+                      }}
+                      src={add_icone}
+                      alt=""
+                    />
+                  )}
+                </div>
+              </Link>
+            </div>
           </li>
         </ul>
-        <ul
-          style={{ marginTop: 130 }}
-          className="navbar-nav navbar-sidenav"
-          id="exampleAccordion"
-        >
-          {this.props.user ? <>{channelLinks}</> : <div />}
-        </ul>
-        <ul className="navbar-nav sidenav-toggler">
-          <li className="nav-item">
+        {this.props.user && (
+          <ul style={{}} className="ulChats col-12" id="exampleAccordion">
+            {this.props.user && <>{channelLinks}</>}
+          </ul>
+        )}
+        {/* <ul className="">
+          <li className="">
             <span
-              className="nav-link text-center"
-              id="sidenavToggler"
+              className=""
+              id=""
               onClick={() =>
                 this.setState(prevState => ({
                   collapsed: !prevState.collapsed
@@ -78,7 +88,7 @@ class SideNav extends React.Component {
               />
             </span>
           </li>
-        </ul>
+        </ul> */}
         <Modal open={open} onClose={this.onCloseModal} center>
           <ChannelForm close={this.onCloseModal} />
         </Modal>

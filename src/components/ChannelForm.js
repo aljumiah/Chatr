@@ -37,7 +37,7 @@ class ChannelForm extends Component {
       <div className="mt-5 p-2">
         <form onSubmit={this.submitChannel}>
           {!!errors.length && (
-            <div className="alert alert-danger" role="alert">
+            <div className="alert alert-danger animated shake" role="alert">
               {errors.map(error => (
                 <p key={error}>{error}</p>
               ))}
@@ -70,7 +70,11 @@ class ChannelForm extends Component {
               onChange={this.onTextchange}
             />
           </div>
-          <button className="btn btn-success" type="submit">
+          <button
+            style={{ borderRadius: 20, width: "100%" }}
+            className="btn btn-success"
+            type="submit"
+          >
             Add
           </button>
         </form>

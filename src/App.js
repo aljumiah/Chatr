@@ -30,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="content-wrapper">
+      <div className="content-wrapper col-12">
         <NavBar history={this.props.history} />
         <Switch>
           <Route path="/welcome" component={Welcome} />
@@ -41,7 +41,7 @@ class App extends Component {
           <PrivateRoute path="/private" component={SuperSecretPage} />
           <Redirect to="/welcome" />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

@@ -9,7 +9,7 @@ import {
   faSignInAlt,
   faUserPlus
 } from "@fortawesome/free-solid-svg-icons";
-
+import logout from "../../assets/images/logout.png";
 class AuthButton extends Component {
   render() {
     let user;
@@ -18,42 +18,46 @@ class AuthButton extends Component {
     }
 
     let buttons = (
-      <li
+      <div
+        style={{ float: "right", paddingRight: 20, textAlign: "right" }}
         onClick={() => this.props.logout(this.props.history)}
-        className="nav-item"
+        className="col-12"
       >
-        <span className=" myColor nav-link">
-          <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-        </span>
-      </li>
+        <a className=" myColor">
+          <img style={{ width: 50, height: 50 }} src={logout} alt="" />
+        </a>
+      </div>
     );
 
     if (!user) {
       buttons = [
-        <li key="loginButton" className="nav-item">
+        <div style={{ marginRight: 10 }} key="loginButton" className="col-4">
           <Link
-            style={{ color: "#01b1f2" }}
+            style={{ color: "#fff", float: "right" }}
             to="/login"
-            className=" myColor nav-link"
+            className=" myColor"
           >
             <FontAwesomeIcon icon={faSignInAlt} /> Login
           </Link>
-        </li>,
-        <li key="signupButton" className="nav-item">
-          <Link to="/signup" className="myColor nav-link">
+        </div>,
+        <div key="signupButton" className="col-6">
+          <Link style={{ color: "#fff" }} to="/signup" className="myColor">
             <FontAwesomeIcon icon={faUserPlus} /> Signup
           </Link>
-        </li>
+        </div>
       ];
     }
 
     return (
-      <ul className="navbar-nav ml-auto">
-        <span style={{ color: "#3597db" }} className="  navbar-text">
+      <div className="col-12">
+        <div
+          style={{ color: "#fff", paddingTop: 15, paddingLeft: 20 }}
+          className=" col-6 navbar-text"
+        >
           {user && user.username}
-        </span>
-        {buttons}
-      </ul>
+        </div>
+        <div className="col-6">{buttons}</div>
+      </div>
     );
   }
 }
