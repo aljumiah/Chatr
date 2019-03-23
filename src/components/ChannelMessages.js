@@ -71,6 +71,36 @@ class ChannelMessages extends Component {
               borderRadius: 20
             }}
           >
+            <div
+              className="col-12"
+              style={{
+                margin: 5,
+                padding: 10
+              }}
+            >
+              <div className="col-1">
+                <img
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 100,
+                    padding: 2,
+                    border: "1px solid #01b1f2"
+                  }}
+                  src={
+                    chatBackGround.image_url
+                      ? chatBackGround.image_url
+                      : "https://cdn.pixabay.com/photo/2017/08/12/10/13/background-2633962_960_720.jpg"
+                  }
+                />
+              </div>
+              <div
+                className="col-9"
+                style={{ color: "#01b1f2", paddingTop: 10 }}
+              >
+                {chatBackGround.name}
+              </div>
+            </div>
             <div className=" col-12 chat_overflow">
               <div id="bottom" className="col-12">
                 {this.channel()}
