@@ -52,6 +52,7 @@ class MessageForm extends Component {
       this.resetForm,
       this.props.channelID
     );
+    this.resetForm();
   };
 
   handleEmojiClick = (n, e) => {

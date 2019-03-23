@@ -13,25 +13,31 @@ class SearchBar extends Component {
           style={{ marginBottom: 0, padding: 0, color: "white" }}
           className="input-group my-3"
         >
-          <input
-            placeholder="Search"
-            className="form-control SearchStyle"
-            type="text"
-            onChange={event => this.props.filterChannels(event.target.value)}
-          />
+          {this.props.user && (
+            <input
+              placeholder="Search"
+              className="form-control SearchStyle"
+              type="text"
+              onChange={event => this.props.filterChannels(event.target.value)}
+            />
+          )}
           <div className="input-group-append" />
         </div>
       </div>
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    user: state.auth.user
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     filterChannels: query => dispatch(actionCreators.filterChannels(query))
   };
 };
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SearchBar);

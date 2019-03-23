@@ -1,5 +1,5 @@
 .content-wrapper {
-  background: #01b1f2;
+  background: #65b2e5;
   border-radius: 20px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .SearchStyle {
-  color: #fff !important;
+  color: #000 !important;
 }
 .message_circle {
   display: block;
@@ -48,7 +48,6 @@
   pointer-events: none;
   border-bottom-color: #fff;
   border-width: 10px;
-  margin-left: -10px;
 }
 .emoji-picker {
   margin: 20px;
@@ -253,10 +252,12 @@ input.messageStyleInput {
   display: inline-flex;
   overflow-y: scroll;
   height: 160px;
-  width: 600px;
   list-style-type: none;
   background: #fff;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 20px 20px 20px 20px;
+  padding: 20px !important;
+  width: 98% !important;
+  margin-left: 1%;
 }
 
 .body_content {
@@ -270,6 +271,64 @@ ul.ulChats li a span {
   font-size: 10px;
 }
 
+.divMessagePeople {
+  background: white;
+  border-radius: 20px;
+  padding: 14px !important;
+  background: #e9ecef;
+}
+
+.divMessagePeople:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 7px solid #e9ecef;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #e9ecef;
+  border-bottom: 7px solid transparent;
+  transform: scale(-1, 1);
+  top: 10px;
+  right: 99%;
+}
+.divMessageUser:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 7px solid #65b2e5;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #65b2e5;
+  border-bottom: 7px solid transparent;
+  right: -11px;
+  top: 10px;
+}
+
+.divMessageUser {
+  background: #65b2e5;
+  border-radius: 20px;
+  padding: 14px !important;
+  float: right !important;
+}
+
+.divMessageLebelPeople {
+}
+.divMessageLebelUser {
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.chatbox {
+  width: 98% !important;
+  margin-left: 1%;
+}
+.styles_modal__gNwvD {
+  border-radius: 20px;
+}
+.margin_top {
+  margin-top: 100px !important;
+}
 /****************************************************************************/
 /****************************************************************************/
 
@@ -291,7 +350,7 @@ ul.ulChats li a span {
 [class*="col-"] {
   float: left;
   padding: 1px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .col-1 {
@@ -332,3 +391,36 @@ ul.ulChats li a span {
 }
 /****************************************************************************/
 /****************************************************************************/
+@media (min-width: 991px) {
+  .body_content {
+    width: 1280px;
+    padding-left: 570px;
+  }
+}
+
+@media (max-width: 1170px) {
+  .body_content {
+    width: 1200px;
+    padding-left: 470px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .body_content {
+    width: 1000px;
+    padding-left: 300px;
+  }
+}
+
+@media (max-width: 860px) {
+  .body_content {
+    width: 900px;
+    padding-left: 200px;
+  }
+}
+@media (max-width: 760px) {
+  .body_content {
+    width: 700px;
+    padding-left: 10px;
+  }
+}

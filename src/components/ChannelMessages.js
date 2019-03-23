@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 import Message from "./Message";
 import MessageForm from "./MessageForm";
-import defaultBack from "../assets/images/back.jpg";
+import down from "../assets/images/down.png";
 
 class ChannelMessages extends Component {
   interval = setInterval(() => {
@@ -69,20 +69,29 @@ class ChannelMessages extends Component {
         // : `url(${defaultBack})`,
         return (
           <div
-            className="col-12 "
+            className="col-12 chatbox"
             style={{
-              position: "",
               background: "white",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              filter: "alpha((opacity = 50))",
               borderRadius: 20
             }}
           >
             {/* -----------------^^-----the Start--& end^^------------------------- */}
-            <div className="" />
+
             <div className=" col-12 chat_overflow">
               <div className="col-12">{channel}</div>
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                top: 300,
+                right: 0,
+                background: "#73bbe74d",
+                borderRadius: "20px 0px 0px 20px",
+                padding: 14,
+                cursor: "pointer"
+              }}
+            >
+              <img src={down} alt="" style={{ width: 20, height: 20 }} />
             </div>
             <div className="">
               <MessageForm channelID={this.props.match.params.channelID} />

@@ -3,12 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Loading = () => (
-  <div className="spinner mx-auto text-center">
+  <div
+    className="spinner mx-auto text-center col-12"
+    style={{ marginTop: 100 }}
+  >
     <FontAwesomeIcon
       icon={faSpinner}
       spin
       size="4x"
-      style={{ color: "#3598db" }}
+      style={{ color: "#fff" }}
     />
   </div>
 );

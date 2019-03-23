@@ -19,9 +19,9 @@ class AuthButton extends Component {
 
     let buttons = (
       <div
-        style={{ float: "right", paddingRight: 10 }}
+        style={{ float: "right", paddingRight: 20, textAlign: "right" }}
         onClick={() => this.props.logout(this.props.history)}
-        className=""
+        className="col-12"
       >
         <a className=" myColor">
           <img style={{ width: 50, height: 50 }} src={logout} alt="" />
@@ -31,7 +31,7 @@ class AuthButton extends Component {
 
     if (!user) {
       buttons = [
-        <div key="loginButton" className="">
+        <div style={{ marginRight: 10 }} key="loginButton" className="col-4">
           <Link
             style={{ color: "#fff", float: "right" }}
             to="/login"
@@ -40,7 +40,7 @@ class AuthButton extends Component {
             <FontAwesomeIcon icon={faSignInAlt} /> Login
           </Link>
         </div>,
-        <div key="signupButton" className="">
+        <div key="signupButton" className="col-6">
           <Link style={{ color: "#fff" }} to="/signup" className="myColor">
             <FontAwesomeIcon icon={faUserPlus} /> Signup
           </Link>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 // Components
 import SideNav from "./SideNav";
@@ -9,20 +10,22 @@ class NavBar extends Component {
   render() {
     return (
       <nav style={{ marginTop: 10 }} className="color_nav col-12" id="mainNav">
-        <Link className="col-2" to="/welcome">
-          <img
-            style={{
-              width: 60,
-              height: 60,
-              border: " solid white",
-              borderRadius: 50,
-              paddingTop: 5,
-              marginLeft: 40
-            }}
-            src={user}
-            alt=""
-          />
-        </Link>
+        {this.props.user && (
+          <Link className="col-2" to="/welcome">
+            <img
+              style={{
+                width: 60,
+                height: 60,
+                border: " solid white",
+                borderRadius: 50,
+                paddingTop: 5,
+                marginLeft: 40
+              }}
+              src={user}
+              alt=""
+            />
+          </Link>
+        )}
         <div className="col-10">
           <AuthButton history={this.props.history} />
         </div>
@@ -44,5 +47,10 @@ class NavBar extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    user: state.auth.user
+  };
+};
 
-export default withRouter(NavBar);
+export default withRouter(connect(mapStateToProps)(NavBar));

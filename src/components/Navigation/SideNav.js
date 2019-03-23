@@ -67,9 +67,11 @@ class SideNav extends React.Component {
             </div>
           </li>
         </ul>
-        <ul style={{}} className="ulChats col-12" id="exampleAccordion">
-          {this.props.user && <>{channelLinks}</>}
-        </ul>
+        {this.props.user && (
+          <ul style={{}} className="ulChats col-12" id="exampleAccordion">
+            {this.props.user && <>{channelLinks}</>}
+          </ul>
+        )}
         {/* <ul className="">
           <li className="">
             <span
