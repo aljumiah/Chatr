@@ -10,14 +10,9 @@ import * as actionCreators from "../store/actions";
 import Message from "./Message";
 import MessageForm from "./MessageForm";
 
-import down from "../assets/images/down.png";
-
-
 import Counter from "./Counter";
 
 import defaultBack from "../assets/images/back.jpg";
-
-
 
 class ChannelMessages extends Component {
   interval = setInterval(() => {
@@ -26,9 +21,6 @@ class ChannelMessages extends Component {
 
   componentDidMount() {
     this.props.getChannel(this.props.match.params.channelID);
-
-    // this.setState({ numberOfMessages: this.props.channel.length });
-    // console.log(this.props.channel.length);
   }
 
   componentDidUpdate(prevState) {
@@ -37,8 +29,6 @@ class ChannelMessages extends Component {
     ) {
       this.props.getChannel(this.props.match.params.channelID);
     }
-
-    // this.scrollToBottom();
   }
 
   componentWillUpdate(prevState) {
@@ -52,12 +42,6 @@ class ChannelMessages extends Component {
   componentWillUnmount() {
     clearInterval(this.interval);
   }
-
-  scrollToBottom = () => {
-    const bottom = document.getElementById("bottom");
-
-    if (bottom) bottom.scrollIntoView({ behavior: "smooth" });
-  };
 
   channel() {
     return this.props.channel.map((message, idx) => (
@@ -78,20 +62,6 @@ class ChannelMessages extends Component {
         const channelID = this.props.match.params.channelID;
         const chatBackGround =
           this.props.channels.find(channel => channel.id === +channelID) || {};
-        //--------------------------------------now we can use it in the return --------
-
-//         const channel = this.props.channel.map((message, idx) => (
-//           <Message
-//             key={message.id + idx}
-//             message={message}
-//             user={this.props.user}
-//           />
-//         ));
-//         // backgroundImage: chatBackGround.image_url
-//         // ? ` url(${chatBackGround.image_url})`
-//         // : `url(${defaultBack})`,
-
-        // console.log(this.channel().length);
 
         return (
           <div
@@ -101,35 +71,13 @@ class ChannelMessages extends Component {
               borderRadius: 20
             }}
           >
-            {/* -----------------^^-----the Start--& end^^------------------------- */}
-
-
             <div className=" col-12 chat_overflow">
-              <div className="col-12">
-          
-         // {channel}
-          
-                         {this.channel()}
+              <div id="bottom" className="col-12">
+                {this.channel()}
+              </div>
+            </div>
 
-             
-          </div>
-            </div>
-            <div
-              id="bottom"
-              style={{
-                position: "absolute",
-                top: 300,
-                right: 0,
-                background: "#73bbe74d",
-                borderRadius: "20px 0px 0px 20px",
-                padding: 14,
-                cursor: "pointer"
-              }}
-            >
-              <img src={down} alt="" style={{ width: 20, height: 20 }} />
-            </div>
             <div className="">
-
               <MessageForm channelID={this.props.match.params.channelID} />
               <Counter numberOfMessages={this.props.longOfText} />
             </div>
