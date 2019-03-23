@@ -49,9 +49,7 @@
   border-bottom-color: #fff;
   border-width: 10px;
 }
-.emoji-picker {
-  margin: 20px;
-}
+
 .messageLabel {
   margin-left: 35px;
   margin-bottom: 13px;
@@ -222,9 +220,11 @@ input.messageStyleInput {
 
 .emoji-table {
   position: fixed;
-  bottom: 7%;
-  right: 22%;
+  bottom: 100%;
+  right: 10%;
   opacity: 0.6;
+  width: 30px;
+  top: 7%;
 }
 .emoji-table:hover {
   opacity: 0.9;

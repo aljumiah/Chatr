@@ -2,7 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   channel: null,
-  loading: true
+  loading: true,
+  longOfText: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +12,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         channel: action.payload,
-        loading: false
+        loading: false,
+        longOfText: action.payload.length
       };
     // case actionTypes.POST_MESSAGE:
     //   return {
