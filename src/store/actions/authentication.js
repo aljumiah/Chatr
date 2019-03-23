@@ -57,7 +57,7 @@ export const login = (userData, history, fetch) => {
   };
 };
 
-export const signup = (userData, history) => {
+export const signup = (userData, history,fetch) => {
   return async dispatch => {
     try {
       let response = await instance.post("signup/", userData);
@@ -67,6 +67,8 @@ export const signup = (userData, history) => {
       dispatch(setCurrentUser(decodedUser));
       history.push("/welcome");
       console.log(user.token);
+      fetch();
+      
     } catch (err) {
       console.error(err.response);
       setErrors(err.response);
