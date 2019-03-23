@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import ReactPlayer from "react-player";
 
 class Welcome extends Component {
   render() {
@@ -39,6 +40,14 @@ class Welcome extends Component {
             style={{ color: "#65b2e5", paddingTop: 20, paddingBottom: 20 }}
           >
             <h1 className="mb-1">WELCOME</h1>
+
+            <ReactPlayer
+              className="react-player"
+              url="https://www.youtube.com/watch?v=yAl48Tk0Sno"
+              width=" 100%"
+              height="250px"
+              playing
+            />
           </div>
         )}
         <div className="overlay z-0" />
