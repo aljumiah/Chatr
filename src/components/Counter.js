@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import goDown from "../assets/images/goDown.png";
+
+import down from "../assets/images/down.png";
 
 export default class Counter extends Component {
-  state = {
-    numberOfMessages: this.props.numberOfMessages
-  };
-
   componentDidMount() {
     this.scrollToBottom();
   }
@@ -19,13 +16,31 @@ export default class Counter extends Component {
   scrollToBottom = () => {
     const bottom = document.getElementById("bottom");
 
-    if (bottom) bottom.scrollIntoView({ behavior: "smooth" });
+    if (bottom)
+      bottom.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest"
+      });
+
+    // window.scrollTo(0, document.getElementById("bottom").scrollHeight);
   };
 
   render() {
     return (
-      <div onClick={this.scrollToBottom} style={{ cursor: "pointer" }}>
-        <img style={{ width: 25, cursor: "pointer" }} src={goDown} alt="" />
+      <div
+        onClick={this.scrollToBottom}
+        style={{
+          position: "absolute",
+          top: 300,
+          right: 0,
+          background: "#73bbe74d",
+          borderRadius: "20px 0px 0px 20px",
+          padding: 14,
+          cursor: "pointer"
+        }}
+      >
+        <img src={down} alt="" style={{ width: 20, height: 20 }} />
       </div>
     );
   }
