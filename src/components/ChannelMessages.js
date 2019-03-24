@@ -17,7 +17,7 @@ import defaultBack from "../assets/images/back.jpg";
 class ChannelMessages extends Component {
   interval = setInterval(() => {
     this.props.getChannel(this.props.match.params.channelID);
-  }, 3000);
+  }, 2000);
 
   componentDidMount() {
     this.props.getChannel(this.props.match.params.channelID);
