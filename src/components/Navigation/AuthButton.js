@@ -52,7 +52,7 @@ class AuthButton extends Component {
       <div className="col-12">
         <div
           style={{ color: "#fff", paddingTop: 15, paddingLeft: 20 }}
-          className=" col-6 navbar-text"
+          className="myusername col-6 navbar-text"
         >
           {user && user.username}
         </div>
