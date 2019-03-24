@@ -41,12 +41,17 @@ class Welcome extends Component {
           >
             <h1 className="mb-1">WELCOME</h1>
 
-            <ReactPlayer
+
+           {/* <ReactPlayer />
+
+             <ReactPlayer
+              className="react-player"
+
               url="https://www.youtube.com/watch?v=yAl48Tk0Sno"
               width=" 100%"
               height="250px"
               playing
-            />
+            /> */}
           </div>
         )}
         <div className="overlay z-0" />

@@ -224,7 +224,6 @@ input.messageStyleInput {
   right: 10%;
   opacity: 0.6;
   width: 30px;
-  top: 7%;
 }
 .emoji-table:hover {
   opacity: 0.9;
@@ -247,7 +246,9 @@ input.messageStyleInput {
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/
-
+.emoji-table {
+  bottom: 20% !important;
+}
 .ulChats {
   display: inline-flex;
   overflow-y: scroll;
