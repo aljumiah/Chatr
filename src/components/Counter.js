@@ -14,6 +14,8 @@ export default class Counter extends Component {
   componentDidUpdate(prevState) {
     if (prevState.numberOfMessages !== this.props.numberOfMessages) {
       this.scrollToBottom();
+    }
+    if (prevState.numberOfMessages + 1 === this.props.numberOfMessages) {
       this.toneToggleOn();
       setTimeout(() => {
         this.toneToggleOff();
@@ -33,7 +35,7 @@ export default class Counter extends Component {
 
     if (bottom)
       bottom.scrollIntoView({
-        behavior: "smooth",
+        behavior: "auto",
         block: "end",
         inline: "nearest"
       });
