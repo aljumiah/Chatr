@@ -52,6 +52,7 @@ class SideNav extends React.Component {
                 <div>
                   {this.props.user && (
                     <img
+                      className="addingIcone"
                       style={{
                         width: 70,
                         paddingTop: 10,

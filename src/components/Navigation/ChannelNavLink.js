@@ -36,7 +36,7 @@ class ChannelNavLink extends Component {
           style={{}}
         >
           <img
-            className="col-12 rounded-circle rounded-circle_border animated rotateIn"
+            className=" imgChannel col-12 rounded-circle rounded-circle_border animated rotateIn"
             src={
               channel.image_url
                 ? channel.image_url

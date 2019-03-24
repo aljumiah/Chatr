@@ -69,7 +69,7 @@ class Meassage extends Component {
           </div>
         ) : (
           <div className="col-12 " style={{ marginTop: 20 }}>
-            <div className="col-2" style={{ paddingLeft: 20 }}>
+            <div className="col-2 imgbubble" style={{ paddingLeft: 20 }}>
               <img
                 className="col-12"
                 style={{
@@ -87,7 +87,7 @@ class Meassage extends Component {
                 {message.username.substring(0, 7)}
               </div>
             </div>
-            <div className="col-10">
+            <div className="col-10 bubble">
               <div className="col-12 divMessageLebelPeople">
                 <div className="col-6" style={{ color: "#b4b5ba" }}>
                   {message.timestamp.substring(0, 10)}

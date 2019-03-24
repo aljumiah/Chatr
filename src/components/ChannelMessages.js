@@ -95,7 +95,7 @@ class ChannelMessages extends Component {
                 />
               </div>
               <div
-                className="col-9"
+                className="col-9 chatbackname"
                 style={{ color: "#01b1f2", paddingTop: 10 }}
               >
                 {chatBackGround.name}

@@ -425,3 +425,38 @@ ul.ulChats li a span {
     padding-left: 10px;
   }
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 411px) and (-webkit-min-device-pixel-ratio: 1) {
+  .content-wrapper {
+    margin: 0;
+  }
+
+  .body_content {
+    width: 510px;
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+  .myusername {
+    padding-left: 50px !important;
+  }
+  .chatbackname {
+    padding-left: 20px;
+  }
+  .addingIcone {
+    padding-top: 15px !important;
+    padding-bottom: 10px !important;
+    padding-left: 10px !important;
+    padding-right: 20px !important;
+  }
+  .imgChannel {
+    width: 100px !important;
+    height: 50px !important;
+  }
+  .col-10.bubble {
+    padding-left: 10px;
+  }
+  .imgbubble {
+    padding-left: 0px !important;
+  }
+}
