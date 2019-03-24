@@ -43,9 +43,12 @@ class Meassage extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-2" style={{ paddingRight: 20 }}>
+            <div
+              className="col-2 animated fadeInRight"
+              style={{ paddingRight: 20 }}
+            >
               <img
-                className="col-12"
+                className="col-12 "
                 style={{
                   width: 50,
                   height: 50,
@@ -69,7 +72,10 @@ class Meassage extends Component {
           </div>
         ) : (
           <div className="col-12 " style={{ marginTop: 20 }}>
-            <div className="col-2 imgbubble" style={{ paddingLeft: 20 }}>
+            <div
+              className="col-2 imgbubble animated fadeInLeft"
+              style={{ paddingLeft: 20 }}
+            >
               <img
                 className="col-12"
                 style={{

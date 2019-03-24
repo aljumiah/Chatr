@@ -22,8 +22,7 @@ class ChannelNavLink extends Component {
     return (
       <li
         style={{
-          textAlign: "center",
-          margin: 5
+          textAlign: "center"
         }}
         className="col-2 text-break"
         title={channel.name}
@@ -50,7 +49,7 @@ class ChannelNavLink extends Component {
               margin: 5,
               display: "block",
               marginLeft: 5,
-              marginRight: 15
+              padding: 2
             }}
           />
 
